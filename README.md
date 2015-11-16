@@ -49,6 +49,6 @@ tagged with multiple tags. Users can bring up notes in a separate `SearchIndex`
 view by searching for their tags. Once the tag search is implemented, I will
 extend this to a fuzzy search through every Story's content.
 
-### Phase 6: Styling Cleanup and Seeding (1 day)
+### Phase 4: Styling Cleanup and Seeding (1 day)
 
-In Phase 6 I will concentrate on CSS and make my site match the original Pivotal Tracker.
+In Phase 4 I will concentrate on CSS and make my site match the original Pivotal Tracker.
