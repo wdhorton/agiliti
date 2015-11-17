@@ -3,9 +3,15 @@ window.Dashboard = React.createClass({
     return (
       <div className="dashboard-main">
         <Header />
-        <div className="content">
-          <ProjectList />
-        </div>  
+        <div className="content group">
+          <div className="dashboard-page">
+            <div className="column">
+              <ProjectList />
+            </div>
+            <div className="column">
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

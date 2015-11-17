@@ -11,3 +11,12 @@ div.content {
   width: 1000px;
   background: green;
 }
+
+div.dashboard-page {
+  margin-top: 30px;
+}
+
+.dashboard-page .column {
+  float: left;
+  width: 480px;
+}
