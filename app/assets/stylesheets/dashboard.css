@@ -1,0 +1,13 @@
+div.dashboard-main {
+  min-height: calc(100% - 168px);
+  margin: 0 auto;
+  padding: 0;
+  background: #f7f6f6;
+  overflow-x: hidden;
+}
+
+div.content {
+  margin: 0 auto;
+  width: 1000px;
+  background: green;
+}
