@@ -16,12 +16,12 @@ and React.js. Agiliti allows users to:
 - [ ] Apply complex styling to notes while editing
 - [ ] Set reminders on notes
 
-<!-- ## Design Docs
+## Design Docs
 * [View Wireframes][view]
 * [DB schema][schema]
 
 [view]: ./docs/views.md
-[schema]: ./docs/schema.md -->
+[schema]: ./docs/schema.md
 
 ## Implementation Timeline
 
