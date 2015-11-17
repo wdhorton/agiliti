@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117165717) do
+ActiveRecord::Schema.define(version: 20151117174514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,5 +26,18 @@ ActiveRecord::Schema.define(version: 20151117165717) do
     t.string   "session_token"
     t.string   "company"
   end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",                            null: false
+    t.boolean  "public",          default: false
+    t.datetime "start_time",                      null: false
+    t.integer  "account_id",                      null: false
+    t.string   "description"
+    t.string   "profile_content"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "projects", ["account_id"], name: "index_projects_on_account_id", using: :btree
 
 end
