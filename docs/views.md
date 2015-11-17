@@ -1,6 +1,6 @@
 # View Wireframes
 
-<!-- ## New User
+## New User
 ![new-user]
 
-[new-user]: ./wireframes/new_user.png -->
+[new-user]: ./wireframes/signup.png
