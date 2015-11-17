@@ -53,11 +53,55 @@ project_id      | integer   | not null, foreign key (references projects), index
 file_path       | string    | not null
 
 # epics
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+description     | string    |
+url             | string    |
+project_id      | integer   | not null, foreign key (references projects), indexed
 
 ## accounts
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+plan            | string    | not null
+status          | string    | not null
 
 # people
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+email           | string    | not null
+username        | string    |
+
 
 # project_memberships
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+project_id      | integer   | not null, foreign key (references projects), indexed
+account_id      | integer   | not null, foreign key (references accounts), indexed
+
+# project_memberships
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+person_id       | integer   | not null, foreign key (references people), indexed
+account_id      | integer   | not null, foreign key (references accounts), indexed
+owner           | boolean   |
+admin           | boolean   |
+project_creator | boolean   |
+
 
 # iterations
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+number          | integer   | not null
+project_id      | integer   | not null, foreign key (references projects), indexed
+length          | integer   |
+start           | datetime  |
+finish          | datetime  |
