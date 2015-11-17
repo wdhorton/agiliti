@@ -13,6 +13,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
+    project = Project.find(params[:id])
+    project.destroy!
+    render json: project
   end
 
   private
