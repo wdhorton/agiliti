@@ -1,51 +1,63 @@
 # Schema Information
 
-## notes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
+## stories
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+name          | string    | not null
+story_type    | string    | not null
+current_state | string    | not null
+project_id    | integer   | not null, foreign key (references projects), indexed
 
-## notebooks
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
-
-## reminders
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
-
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
-
-## users
+## projects
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-username        | string    | not null, indexed, unique
-password_digest | string    | not null
-session_token   | string    | not null, indexed, unique
+name            | string    | not null
+public          | boolean   | default: false
+start_time      | datetime  | not null
+account_id      | integer   | not null, foreign key (references accounts), indexed
+description     | string    |
+profile_content | string    |
+
+## tasks
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+story_id        | integer   | not null, foreign key (references stories), indexed
+description     | string    | not null
+complete        | boolean   | default: false
+position        | integer   |
+
+## labels
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+project_id      | integer   | not null, foreign key (references projects), indexed
+name            | string    | not null
+
+## comments
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+text            | text      | not null
+story_id        | integer   | not null, foreign key (references stories), indexed
+person_id       | integer   | not null, foreign key (references people), indexed
+
+
+## file_attachments
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+project_id      | integer   | not null, foreign key (references projects), indexed
+file_path       | string    | not null
+
+# epics
+
+## accounts
+
+# people
+
+# project_memberships
+
+# iterations
