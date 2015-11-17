@@ -14,13 +14,22 @@ window.ProjectList = React.createClass({
 
   render: function () {
     return (
-      <ul>
-        {
-          this.state.projects.map(function (project) {
-            return <ProjectListItem project={project} />;
-          })
-        }
-      </ul>
+      <div className="projects-list">
+        <h2>
+          <a href='#' className='create-new-project-button'>
+            Create Project
+          </a>
+          <span>Projects</span>
+          <a href='#'>Show all</a>
+        </h2>
+        <ul>
+          {
+            this.state.projects.map(function (project) {
+              return <ProjectBox project={project} />;
+            })
+          }
+        </ul>
+      </div>
     );
   }
 });
