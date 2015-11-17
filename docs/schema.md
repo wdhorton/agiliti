@@ -52,7 +52,7 @@ id              | integer   | not null, primary key
 project_id      | integer   | not null, foreign key (references projects), indexed
 file_path       | string    | not null
 
-# epics
+## epics
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -76,6 +76,7 @@ id              | integer   | not null, primary key
 name            | string    | not null
 email           | string    | not null
 username        | string    |
+password_digest | string    | not null
 
 
 # project_memberships
@@ -85,7 +86,7 @@ id              | integer   | not null, primary key
 project_id      | integer   | not null, foreign key (references projects), indexed
 account_id      | integer   | not null, foreign key (references accounts), indexed
 
-# project_memberships
+# account_memberships
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
