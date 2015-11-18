@@ -1,4 +1,4 @@
-body > footer {
+.dashboard > footer {
   padding-top: 115px;
   color: #9F9FA1;
   background-color: #f7f6f6;
@@ -10,11 +10,11 @@ body > footer {
   border-top: 1px solid #ccc;
 }
 
-body > footer a:hover {
+.dashboard > footer a:hover {
   text-decoration: underline;
 }
 
-body > footer a {
+.dashboard > footer a {
   text-decoration: none;
   color: #7a7b7f;
   font-size: 12px;
@@ -30,7 +30,7 @@ body > footer a {
   height: 42px;
 }
 
-body > footer a.twitter-link {
+.dashboard > footer a.twitter-link {
   float: right;
   background: url("twitter_icon.png") no-repeat 0 0;
   padding-left: 26px;

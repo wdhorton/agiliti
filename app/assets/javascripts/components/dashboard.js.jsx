@@ -30,20 +30,23 @@ window.Dashboard = React.createClass({
     }
 
     return (
-      <div className="dashboard-main">
-        {modal}
-        <Header showProjectsMenu={this.showProjectsMenu} />
+      <div className="dashboard">
+        <div className="dashboard-main">
+          {modal}
+          <Header showProjectsMenu={this.showProjectsMenu} />
 
-        <div className="content group">
-          <div className="dashboard-page">
-            <div className="column">
-              <ProjectList showProjectModal={this.showProjectModal} />
-            </div>
-            <div className="column">
+          <div className="content group">
+            <div className="dashboard-page">
+              <div className="column">
+                <ProjectList showProjectModal={this.showProjectModal} />
+              </div>
+              <div className="column">
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
+        <Footer />
       </div>
     );
   }
