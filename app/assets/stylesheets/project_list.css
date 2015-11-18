@@ -27,6 +27,11 @@ div.projects-list {
   border-radius: 3px;
 }
 
+.dashboard-page .create-new-project-button:hover {
+  background: #245180;
+  text-decoration: none;
+}
+
 .dashboard-page h2 span {
   font-weight: 600;
   font-size: 20px;
@@ -37,4 +42,8 @@ div.projects-list {
   font-weight: 600;
   font-size: 12px;
   color: #3472a4;
+}
+
+.dashboard-page h2 > a:hover {
+  text-decoration: underline;
 }

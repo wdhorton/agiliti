@@ -12,11 +12,18 @@ window.ProjectList = React.createClass({
     this.setState({ projects: ProjectStore.all() });
   },
 
+  handleClick: function (e) {
+    e.preventDefault();
+    this.props.showProjectModal();
+  },
+
   render: function () {
     return (
       <div className="projects-list">
         <h2>
-          <a href='#' className='create-new-project-button'>
+          <a href='#'
+             onClick={this.handleClick}
+             className='create-new-project-button'>
             Create Project
           </a>
           <span>Projects</span>
