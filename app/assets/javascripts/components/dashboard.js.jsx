@@ -32,7 +32,7 @@ window.Dashboard = React.createClass({
     return (
       <div className="dashboard-main">
         {modal}
-        <Header />
+        <Header showProjectsMenu={this.showProjectsMenu} />
 
         <div className="content group">
           <div className="dashboard-page">

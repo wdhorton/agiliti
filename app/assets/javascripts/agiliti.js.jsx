@@ -17,6 +17,7 @@ $(function() {
   var routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />
+      <Route path="/projects/:id" component={ProjectShowPage} />
     </Route>
   );
 
