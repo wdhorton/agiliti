@@ -12,8 +12,12 @@
   var CHANGE_EVENT = "change";
 
   root.ProjectStore = $.extend({}, EventEmitter.prototype, {
-    all: function (){
+    all: function () {
       return _projects.slice();
+    },
+
+    find: function (id) {
+      return _projects.filter(function (p) { return p.id === id; } )[0];
     },
 
     addChangeListener: function (callback) {

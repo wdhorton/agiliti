@@ -32,7 +32,7 @@ window.ProjectShowHeader = React.createClass({
           </li>
           <li>
             <a className="dropdown-menu" onClick={this.showProjectsMenu}>
-              <div className="dropdown-menu-text project-name">My Sample Project</div>
+              <div className="dropdown-menu-text project-name">{this.props.title}</div>
             </a>
             {projects_menu}
           </li>

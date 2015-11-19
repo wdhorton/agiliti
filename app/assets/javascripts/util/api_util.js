@@ -31,5 +31,16 @@ ApiUtil = {
         ApiActions.receiveAllAccounts(accounts);
       }
     });
+  },
+
+  fetchStories: function () {
+    $.ajax({
+      url: "api/stories",
+      method: "GET",
+      dataType: 'json',
+      success: function (stories) {
+        ApiActions.receiveAllStories(stories);
+      }
+    });
   }
 };

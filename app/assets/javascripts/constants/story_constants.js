@@ -1,0 +1,3 @@
+StoryConstants = {
+  STORIES_RECEIVED: "STORIES_RECEIVED"
+};
