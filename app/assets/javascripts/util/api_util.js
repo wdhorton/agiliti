@@ -16,7 +16,7 @@ ApiUtil = {
       data: { project : project },
       dataType: 'json',
       success: function (project) {
-        debugger;
+        ApiActions.receiveNewProject(project);
       }
     });
   }

@@ -8,6 +8,10 @@ window.ProjectList = React.createClass({
     ApiUtil.fetchProjects();
   },
 
+  componentWillUnmount: function () {
+    ProjectStore.removeChangeListener(this.updateProjects);
+  },
+
   updateProjects: function () {
     this.setState({ projects: ProjectStore.all() });
   },
