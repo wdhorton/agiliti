@@ -7,15 +7,15 @@ window.CurrentIterationHeader = React.createClass({
           <span className="number">3</span>
           <time className="length">
             16 Nov
-            <span className="type"> - current</span>
+            <span className="type"> - Current</span>
           </time>
           <div className="float-right">
             <span class="points">
               Pts:
-              <span class="completed">5 of </span>
+              <span class="completed"> 5 of </span>
               <span class="total">7</span>
             </span>
-            <a class="team-strength" title="Team strength for this iteration is at 100%. Click to change.">100%</a>
+            <a class="team-strength" title="Team strength for this iteration is at 100%. Click to change."></a>
           </div>
         </header>
       </div>

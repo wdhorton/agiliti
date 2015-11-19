@@ -4,6 +4,7 @@ window.CurrentPanelContent = React.createClass({
       <section className="items-container">
         <div className="panel-content">
           <CurrentIterationHeader />
+          <StoryList />
         </div>
       </section>
     );

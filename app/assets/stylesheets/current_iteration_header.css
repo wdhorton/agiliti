@@ -1,0 +1,55 @@
+.iteration .preview {
+  background: #676E7A;
+  border-top: 1px solid #787F8C;
+  border-bottom: 1px solid #535965;
+  color: #eee;
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+  padding: 2px 5px 2px 3px;
+  text-shadow: 1px 1px 2px #343A40;
+  box-sizing: content-box;
+}
+
+.iteration .preview a.current_iteration_bubble {
+    /*background-image: ;
+    background-position: 0 -684px;
+    background-repeat: repeat-y;*/
+    height: 13px;
+    width: 13px;
+    float: left;
+    margin-top: 2px;
+    padding-right: 3px;
+}
+
+.iteration .preview .number {
+  padding-right: 2px;
+  margin-right: 9px;
+}
+
+.iteration .length {
+  margin-left: 3px;
+}
+
+.iteration .length:hover {
+  text-decoration: underline;
+}
+
+.iteration.no_team_strength.editable_iteration a.team_strength {
+  margin-top: 2px;
+  opacity: 1.0;
+  cursor: pointer;
+  margin-top: 2px;
+  /*background-image: ;
+  background-position: 0 -1769px;
+  background-repeat: repeat-y;*/
+  height: 16px;
+  width: 18px;
+  float: left;
+  margin: 3px 1px 0 6px;
+}
+
+.iteration .preview .points {
+    float: left;
+    margin-left: 5px;
+}
