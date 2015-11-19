@@ -1,0 +1,54 @@
+.select-dropdown {
+  position: absolute;
+  display: block;
+  width: 263px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  line-height: 25px;
+  color: #555;
+  font-size: 11px;
+  padding: 3px;
+  border-radius: 3px;
+  max-height: 165px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.select-option {
+  font-weight: normal;
+  padding: 0 11px 0 15px;
+  cursor: pointer;
+}
+
+.select-option:hover {
+  background-color: #EEF0F1;
+}
+
+.select-option-separator {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #DDD;
+  margin: 3px 0;
+  padding: 0;
+}
+
+.select-account-name {
+  width: 74%;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.select-account-owner {
+  overflow: hidden;
+  width: 24%;
+  color: #B2B2B2;
+  float: right;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: right;
+}

@@ -5,7 +5,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create!(project_params)
+    project = Project.create!(project_params.merge({ start_time: Time.now }))
     render json: project
   end
 
@@ -14,7 +14,7 @@ class Api::ProjectsController < ApplicationController
 
   def destroy
     project = Project.find(params[:id])
-    project.destroy!
+    project.destroy! if current_user.projects.include?(project)
     render json: project
   end
 
