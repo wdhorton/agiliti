@@ -1,7 +1,11 @@
 window.CurrentPanelContent = React.createClass({
   render: function () {
     return (
-      <div></div>
+      <section className="items-container">
+        <div className="panel-content">
+          <CurrentIterationHeader />
+        </div>
+      </section>
     );
   }
 });
