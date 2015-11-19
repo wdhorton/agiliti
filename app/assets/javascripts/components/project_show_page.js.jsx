@@ -5,6 +5,7 @@ window.ProjectShowPage = React.createClass({
         <ProjectShowHeader />
         <section className="project main">
           <Sidebar />
+          <CurrentPanel />
         </section>
       </div>
     );
