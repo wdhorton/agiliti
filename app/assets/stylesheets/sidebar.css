@@ -1,0 +1,98 @@
+.sidebar-wrapper {
+  height: 100%;
+}
+
+.sidebar-header,
+.sidebar-content,
+.sidebar-footer {
+  position: absolute;
+  width: 100%;
+}
+
+.sidebar-header {
+  top: 0;
+  font-size: 12px;
+  border-top: 1px solid #393A3C;
+  border-bottom: 1px solid #000;
+  background-color: #2c2d2f;
+  height: 34px;
+  box-sizing: border-box;
+}
+
+.toggle-sidebar {
+  margin: 7px 0 0 13px;
+  cursor: pointer;
+  display: block;
+  /*background-image: ;
+  background-position: 0 -929px;
+  background-repeat: repeat-y;*/
+  height: 16px;
+  width: 16px;
+}
+
+.sidebar-content {
+  top: 34px;
+  bottom: 24px;
+  color: #fff;
+}
+
+.settings-area {
+  background: #1f2021;
+}
+
+.actions {
+  background-color: #212123;
+  border-bottom: 1px solid #000;
+}
+
+.add-story {
+  display: block;
+  position: relative;
+  background-color: #2F3337;
+  padding: 6px;
+  cursor: pointer;
+  height: 28px;
+}
+
+.panels.my-work:before {
+  opacity: 0.8;
+  /*background-image: ;
+  background-position: 0 -1023px;
+  background-repeat: repeat-y;*/
+  height: 16px;
+  width: 16px;
+}
+
+.panels li:before {
+  content: '';
+  line-height: 29px;
+  position: absolute;
+  pointer-events: none;
+  margin: 7px 9px 0 13px;
+}
+
+.sidebar-content label {
+  display: block;
+  padding: 9px 8px 8px 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 28px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  color: #CCCCCC;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.panel-name {
+  text-indent: 38px;
+  max-width: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panels.epics, .panels.charts {
+  margin-top: 6px;
+  border-top: 4px solid #262a2e;
+  margin-bottom: 3px;
+}

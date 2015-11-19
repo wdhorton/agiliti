@@ -1,0 +1,91 @@
+.header {
+  background-color: #256188;
+  height: 35px;
+  color: #fff;
+  position: relative;
+  line-height: 35px;
+  padding: 0 5px 0 10px;
+  border-bottom: 1px solid #212121;
+}
+
+.header-logo-link > a:before {
+  background: red;
+  /*background-size: 20px 20px;*/
+  height: 20px;
+  width: 20px;
+  content: '';
+  position: absolute;
+  top: 7.5px;
+}
+
+.header > ul > li {
+  float: left;
+}
+
+.header > ul > li a {
+  cursor: pointer;
+}
+
+.header-logo-link {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+
+.dropdown-menu-text {
+  display: block;
+  width: 116px;
+  height: 35px;
+  padding-right: 7px;
+}
+
+.dropdown-menu {
+  display: block;
+  position: relative;
+}
+
+.dropdown-menu:after {
+  position: absolute;
+  top: 45%;
+  right: 0;
+  width: 0;
+  height: 0;
+  content: "";
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: rgba(255, 255, 255, 0.6) transparent transparent transparent
+}
+
+.header > ul > li.header-float-right {
+  float: right;
+}
+
+.dropdown {
+  position: relative;
+  float: left;
+}
+
+.dropdown-name {
+  margin-left: 24px;
+  padding-right: 13px;
+  position: relative;
+  display: block;
+  max-width: 160px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.dropdown-name:after {
+  position: absolute;
+  top: 43%;
+  right: 0;
+  width: 0;
+  height: 0;
+  content: "";
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: rgba(255, 255, 255, 0.3) transparent transparent transparent
+}

@@ -1,7 +1,9 @@
 window.SidebarFooter = React.createClass({
   render: function () {
     return (
-      <footer></footer>
+      <footer className="sidebar-footer">
+        
+      </footer>
     );
   }
 });

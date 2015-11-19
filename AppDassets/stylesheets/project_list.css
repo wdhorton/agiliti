@@ -1,0 +1,49 @@
+div.projects-list {
+  margin-right: 40px;
+}
+
+.dashboard-page h2 {
+  height: 27px;
+  font-size: 1.8em;
+  margin-bottom: 16px;
+  margin-top: 0;
+  text-indent: 2px;
+}
+
+.dashboard-page .create-new-project-button {
+  background: #3472a4;
+  color: #fff;
+  display: block;
+  float: right;
+  font-size: 11px;
+  font-weight: 400;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  text-indent: 0;
+  text-transform: uppercase;
+  width: 112px;
+  margin-top: 0;
+  border-radius: 3px;
+}
+
+.dashboard-page .create-new-project-button:hover {
+  background: #245180;
+  text-decoration: none;
+}
+
+.dashboard-page h2 span {
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 16px;
+}
+
+.dashboard-page h2 > a {
+  font-weight: 600;
+  font-size: 12px;
+  color: #3472a4;
+}
+
+.dashboard-page h2 > a:hover {
+  text-decoration: underline;
+}
