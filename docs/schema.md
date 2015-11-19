@@ -78,14 +78,6 @@ email           | string    | not null
 username        | string    |
 password_digest | string    | not null
 
-
-# project_memberships
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-project_id      | integer   | not null, foreign key (references projects), indexed
-account_id      | integer   | not null, foreign key (references accounts), indexed
-
 # account_memberships
 column name     | data type | details
 ----------------|-----------|-----------------------

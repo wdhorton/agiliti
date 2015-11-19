@@ -1,9 +1,9 @@
 class Person < ActiveRecord::Base
   attr_reader :password
 
-  has_many :accounts
   has_many :accounts, through: :account_memberships
   has_many :projects, through: :accounts
+  has_many :account_memberships
 
   validates :password, length: { minimum: 8, allow_nil: true }
 
