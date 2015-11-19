@@ -13,13 +13,13 @@ window.SidebarContent = React.createClass({
               </a>
               <div className="float-right">
                 <span className="story-density">
-                  <a class="anchor"></a>
+                  <a className="anchor"></a>
                 </span>
                 <span className="project-color">
-                  <a class="anchor"></a>
+                  <a className="anchor"></a>
                 </span>
                 <span className="settings">
-                  <a class="anchor"></a>
+                  <a className="anchor"></a>
                 </span>
               </div>
             </nav>

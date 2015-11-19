@@ -54,7 +54,7 @@
   border-bottom: 1px solid #000;
 }
 
-.add-story {
+.sidebar-wrapper .add-story {
   display: block;
   position: relative;
   background-color: #2F3337;
@@ -174,9 +174,14 @@ nav .velocity span {
   margin-left: -4px;
 }
 
+.float-right {
+  float: right;
+}
+
 .settings-area .anchor {
   border-left: 1px solid #2f3337;
   display: block;
+  float: left;
   height: 34px;
   width: 36px;
   position: relative;
