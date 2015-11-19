@@ -1,0 +1,9 @@
+section.main {
+  background-color: #212121;
+  overflow: hidden;
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

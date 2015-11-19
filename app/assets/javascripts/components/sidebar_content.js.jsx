@@ -3,14 +3,24 @@ window.SidebarContent = React.createClass({
     return (
       <section className="sidebar-content">
         <ul className="settings-area">
-          <li className="actions">
+          <li className="actions group">
             <nav>
-              <a className="velocity"></a>
-              <a className="members"></a>
+              <a className="velocity">
+                <span>8</span>
+              </a>
+              <a className="members">
+                <span>1</span>
+              </a>
               <div className="float-right">
-                <span className="story-density"></span>
-                <span className="project-color"></span>
-                <span className="settings"></span>
+                <span className="story-density">
+                  <a class="anchor"></a>
+                </span>
+                <span className="project-color">
+                  <a class="anchor"></a>
+                </span>
+                <span className="settings">
+                  <a class="anchor"></a>
+                </span>
               </div>
             </nav>
           </li>

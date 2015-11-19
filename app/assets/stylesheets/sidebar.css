@@ -1,5 +1,14 @@
 .sidebar-wrapper {
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #000;
+  background-color: #2F3337;
+  font-size: 12px;
+  width: 230px;
+  overflow: hidden;
 }
 
 .sidebar-header,
@@ -54,6 +63,28 @@
   height: 28px;
 }
 
+.add-story:hover span {
+  background-color: #296792;
+}
+
+.add-story span {
+  background-color: #21608a;
+  padding: 0;
+  line-height: 28px;
+  height: 28px;
+  color: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
+.add-story span:before {
+  content: '';
+  float: left;
+  margin: 9px 12px 0 10px;
+  width: 10px;
+  height: 10px;
+}
+
 .panels.my-work:before {
   opacity: 0.8;
   /*background-image: ;
@@ -84,6 +115,7 @@
 }
 
 .panel-name {
+  display: block;
   text-indent: 38px;
   max-width: 101%;
   white-space: nowrap;
@@ -91,8 +123,61 @@
   text-overflow: ellipsis;
 }
 
-.panels.epics, .panels.charts {
+.panels .epics, .panels .charts {
   margin-top: 6px;
   border-top: 4px solid #262a2e;
   margin-bottom: 3px;
+}
+
+form.panels label {
+  cursor: pointer;
+}
+
+.sidebar-content label:hover {
+  color: rgba(138,199,255,0.5);
+}
+
+nav .velocity,
+nav .members {
+  float: right;
+  font-size: 10px;
+  margin-left: 10px;
+  color: #bbb;
+  line-height: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+nav .velocity {
+  max-width: 35px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  font-weight: 600;
+  padding: 0 10px 0 10px;
+  margin: 0;
+  line-height: 34px;
+}
+
+nav .members {
+  max-width: 34px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  font-weight: 600;
+  padding: 0 10px 0 8px;
+  margin: 0;
+  line-height: 34px;
+}
+
+nav .velocity span {
+  margin-left: -4px;
+}
+
+.settings-area .anchor {
+  border-left: 1px solid #2f3337;
+  display: block;
+  height: 34px;
+  width: 36px;
+  position: relative;
 }
