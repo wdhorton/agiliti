@@ -1,0 +1,3 @@
+AccountConstants = {
+  ACCOUNTS_RECEIVED: "ACCOUNTS_RECEIVED"
+};

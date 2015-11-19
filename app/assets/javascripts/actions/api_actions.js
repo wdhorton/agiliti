@@ -11,5 +11,12 @@ ApiActions = {
       actionType: ProjectConstants.NEW_PROJECT_RECEIVED,
       project: project
     });
-  }
+  },
+
+  receiveAllAccounts: function(accounts) {
+    AppDispatcher.dispatch({
+      actionType: AccountConstants.ACCOUNTS_RECEIVED,
+      accounts: accounts
+    });
+  },
 };

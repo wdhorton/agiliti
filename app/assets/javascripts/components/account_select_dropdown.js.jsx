@@ -1,7 +1,22 @@
 window.AccountSelectDropdown = React.createClass({
-  render: function () {
+  getInitialState: function () {
+    return { accounts: AccountStore.all() };
+  },
 
-    var accounts = [{id: 1, name: "William Horton", owner: "You"}];
+  componentDidMount: function () {
+    AccountStore.addChangeListener(this.updateAccounts);
+    ApiUtil.fetchAccounts();
+  },
+
+  componentWillUnmount: function () {
+    AccountStore.removeChangeListener(this.updateAccounts);
+  },
+
+  updateAccounts: function () {
+    this.setState({ accounts: AccountStore.all() });
+  },
+
+  render: function () {
 
     return (
       <div>
@@ -12,7 +27,7 @@ window.AccountSelectDropdown = React.createClass({
           </li>
           <li className="select-option-separator"></li>
           {
-            accounts.map(function (account) {
+            this.state.accounts.map(function (account) {
               return (
                 <li
                   onClick={this.props.selectAccount}
@@ -20,7 +35,7 @@ window.AccountSelectDropdown = React.createClass({
                   data-account-id={account.id}
                   data-account-name={account.name}>
                   <span className="select-account-name">{account.name}</span>
-                  <span className="select-account-owner">{account.owner}</span>
+                  <span className="select-account-owner">"You"</span>
                 </li>
               );
             }.bind(this))
