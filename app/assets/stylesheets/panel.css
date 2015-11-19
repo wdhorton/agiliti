@@ -1,0 +1,49 @@
+.panel .panel-header .close,
+.panel .workspace-header .close {
+  left: 0;
+  top: 0;
+}
+
+.panel .panel-header .controls,
+.panel .panel-header .close,
+.panel .workspace-header .controls,
+.panel .workspace-header .close {
+  position: absolute;
+}
+
+.panel .panel-header .close,
+.panel .panel-header .add-story {
+  width: 30px;
+}
+
+.panel .panel-header .close,
+.panel .panel-header .controls,
+.panel .panel-header .add-story {
+  height: 32px;
+}
+
+.panel .panel_header .controls,
+.panel .workspace_header .controls {
+    right: 0;
+    top: 0;
+}
+
+.panel .panel-header h3 {
+  color: #fff;
+  line-height: 33px;
+  box-sizing: border-box;
+  display: inline;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  text-transform: capitalize;
+}
+
+.panel .panel_header .velocity,
+.panel .workspace_header .velocity {
+  font-size: 10px;
+  margin-left: 7px;
+  color: #bbb;
+  line-height: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline;
+}
