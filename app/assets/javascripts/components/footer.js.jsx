@@ -10,7 +10,7 @@ window.Footer = React.createClass({
            |
           <a href="#"> Status</a>
            |
-          <a href="http://www.tumblr.com/blog/hortonhearsafoo" target="_blank">  Blog</a>
+          <a href="http://hortonhearsafoo.tumblr.com/" target="_blank">  Blog</a>
            |
           <a href="#"> Privacy and Cookie Policy</a>
            |

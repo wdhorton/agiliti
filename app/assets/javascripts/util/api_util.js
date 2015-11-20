@@ -22,6 +22,12 @@ ApiUtil = {
     });
   },
 
+  createNewUser: function () {
+    $.ajax({
+      url: "api/people"
+    });
+  },
+
   fetchAccounts: function () {
     $.ajax({
       url: "api/accounts",

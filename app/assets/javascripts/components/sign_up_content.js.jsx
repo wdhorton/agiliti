@@ -1,10 +1,10 @@
-window.SignInContent = React.createClass({
+window.SignUpContent = React.createClass({
   render: function () {
     return (
       <div className="sign-in-content">
-        <h1>Let's get to work!</h1>
+        <h1>Get started!</h1>
         <div className="sign-in-form">
-          <SignInForm />
+          <SignUpForm />
 
           <div className="sign-in-or-spacer">or</div>
 
@@ -12,7 +12,7 @@ window.SignInContent = React.createClass({
             <div className="google-plus-button">
               <div className="google-plus-icon"></div>
             </div>
-            <span className="google-oauth-message">Sign In with Google</span>
+            <span className="google-oauth-message">Sign Up with Google</span>
           </a>
         </div>
       </div>

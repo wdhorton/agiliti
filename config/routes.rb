@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :stories, only: [:index, :create, :update, :destroy]
     resources :accounts, only: [:index]
     resource :session, only: [:show, :create, :destroy]
+    resources :people, only: [:create]
   end
 
-  resources :people, only: [:create, :update, :destroy]
 
   get 'signup/new', to: 'people#new', as: 'signup'
 

@@ -7,9 +7,7 @@ SessionsApiUtil = {
       dataType: 'json',
       data: credentials,
       success: function (currentUser) {
-        console.log("signed in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
-        debugger;
         if (success) success();
       }
     });
@@ -21,7 +19,6 @@ SessionsApiUtil = {
       method: "DELETE",
       dataType: 'json',
       success: function () {
-        console.log("signed out!");
         CurrentUserActions.receiveCurrentUser({});
       }
     });

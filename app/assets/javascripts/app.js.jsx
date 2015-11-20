@@ -37,6 +37,7 @@ $(function() {
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />
       <Route path="/signin" component={SignInPage} />
+      <Route path="/signup/new" component={SignUpPage} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/projects/:id" component={ProjectShowPage} />
     </Route>
