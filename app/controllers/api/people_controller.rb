@@ -3,6 +3,8 @@ class Api::PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
+    Account.create!()
+
     if @person.save
       sign_in!(@person)
       render json: @person

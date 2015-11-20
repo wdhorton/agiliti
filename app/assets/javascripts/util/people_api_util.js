@@ -1,5 +1,5 @@
 PeopleApiUtil = {
-  signup: function (person, succcess) {
+  signup: function (person, success) {
     $.ajax({
       url: "api/people",
       method: "POST",
