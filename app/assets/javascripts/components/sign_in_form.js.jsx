@@ -10,7 +10,7 @@ window.SignInForm = React.createClass({
 
     SessionsApiUtil.signin(this.state, function() {
       this.history.pushState(null, "/dashboard");
-    });
+    }.bind(this));
   },
 
   render: function () {

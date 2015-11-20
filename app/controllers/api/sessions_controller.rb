@@ -15,8 +15,6 @@ class Api::SessionsController < ApplicationController
       params[:password]
     )
 
-    debugger
-
     if @person
       sign_in!(@person)
       render json: @person

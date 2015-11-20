@@ -6,10 +6,11 @@ SessionsApiUtil = {
       method: "POST",
       dataType: 'json',
       data: credentials,
-      success: function () {
+      success: function (currentUser) {
         console.log("signed in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
-        success && success();
+        debugger;
+        if (success) success();
       }
     });
   },
