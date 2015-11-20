@@ -204,3 +204,37 @@ a.forgot-password {
 .sign-in-submit-button span {
   display: inline;
 }
+
+.sign-in-footer {
+  height: 82px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  line-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  background: #fff
+}
+
+.sign-in-footer a {
+  position: relative;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  margin: 0 10px;
+  transition: opacity 150ms ease-in-out;
+}
+
+.sign-in-footer a.facebook {
+}
+
+.sign-in-footer a.twitter {
+}
+
+.sign-in-footer a.email {
+}
+
+.sign-in-footer a:hover {
+  opacity: 0.5;
+}
