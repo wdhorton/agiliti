@@ -5,6 +5,25 @@ $(function() {
   var IndexRoute = ReactRouter.IndexRoute;
 
   var App = React.createClass({
+
+    mixins: [ReactRouter.History],
+
+    getInitialState: function () {
+      return { currentUser: null };
+    },
+
+    componentWillMount: function () {
+      CurrentUserStore.addChangeListener(this._ensureSignedIn);
+      SessionsApiUtil.fetchCurrentUser();
+    },
+
+    _ensureSignedIn: function () {
+      if (!CurrentUserStore.isSignedIn()) {
+        this.history.pushState(null, "/signin");
+      }
+    },
+
+
     render: function () {
       return (
         <div>
@@ -17,6 +36,8 @@ $(function() {
   var routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />
+      <Route path="/signin" component={SignInForm} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="/projects/:id" component={ProjectShowPage} />
     </Route>
   );

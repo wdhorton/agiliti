@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
 
   def self.find_by_credentials(username_or_email, password)
     person = Person.find_by_email(username_or_email)
-    person && person.valid_password?(password)
+    person && person.valid_password?(password) ? person : nil
   end
 
   def self.generate_session_token

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :create, :update, :destroy]
     resources :stories, only: [:index, :create, :update, :destroy]
     resources :accounts, only: [:index]
+    resource :session, only: [:show, :create, :destroy]
   end
 
   resources :people, only: [:create, :update, :destroy]

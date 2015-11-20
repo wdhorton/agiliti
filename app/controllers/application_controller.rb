@@ -9,20 +9,20 @@ class ApplicationController < ActionController::Base
     @current_user || Person.find_by_session_token(session[:session_token])
   end
 
-  def logged_in?
+  def signed_in?
     !!current_user
   end
 
-  def login(person)
+  def sign_in!(person)
     session[:session_token] = person.reset_session_token!
   end
 
-  def logout
+  def sign_out!
     person.reset_session_token!
     session[:session_token] = nil
   end
 
-  def ensure_logged_in
+  def ensure_signed_in
     unless (logged_in?)
       redirect_to signin_url
     end
