@@ -31,7 +31,6 @@
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
         case StoryConstants.STORIES_RECEIVED:
-          debugger
           resetStories(payload.stories);
           StoryStore.emit(CHANGE_EVENT);
           break;

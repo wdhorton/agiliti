@@ -3,15 +3,15 @@ window.StoryItem = React.createClass({
 
     var labels;
 
-    if (this.props.story.labels.length > 0) {
-      labels = (
-        <span className="labels">
-          this.props.story.labels.map(function (label) {
-            <a className="label std">shopping</a>
-          })
-        </span>
-      );
-    }
+    // if (this.props.story.labels.length > 0) {
+    //   labels = (
+    //     <span className="labels">
+    //       this.props.story.labels.map(function (label) {
+    //         <a className="label std">shopping</a>
+    //       })
+    //     </span>
+    //   );
+    // }
 
 
     return (

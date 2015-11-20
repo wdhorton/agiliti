@@ -4,7 +4,7 @@ window.StoryList = React.createClass({
       <ul>
         {
           this.props.stories.map(function (story) {
-            <StoryItem story={story} />;
+            return <StoryItem story={story} />;
           })
         }
       </ul>
