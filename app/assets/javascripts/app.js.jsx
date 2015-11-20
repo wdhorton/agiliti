@@ -36,7 +36,7 @@ $(function() {
   var routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />
-      <Route path="/signin" component={SignInForm} />
+      <Route path="/signin" component={SignInPage} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/projects/:id" component={ProjectShowPage} />
     </Route>

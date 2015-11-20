@@ -1,0 +1,40 @@
+.sign-in-page {
+  margin-bottom: 82px;
+  background-color: #e4e4e4;
+  line-height: 1;
+}
+
+.sign-in-header-container {
+  background: #fff;
+  padding: 0 15px;
+  height: 62px;
+}
+
+.sign-in-header-outside {
+  margin: 0 auto;
+  max-width: 960px;
+  min-width: 565px;
+}
+
+.sign-in-header-logo {
+  float: left;
+  height: 50px;
+  width: 275px;
+  margin-top: 10px;
+  /*background: no-repeat;*/
+}
+
+.toggle-sign-in-sign-up {
+  float: right;
+  font-size: 11px;
+  font-weight: 900;
+  color: #5f5f5f;
+  letter-spacing: 1px;
+  line-height: 62px;
+  padding-right: 12px;
+}
+
+.toggle-sign-in-sign-up-link {
+  color: #426FA0;
+  text-decoration: none;
+}
