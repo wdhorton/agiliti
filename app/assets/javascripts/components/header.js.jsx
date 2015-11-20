@@ -1,6 +1,6 @@
 window.Header = React.createClass({
   getInitialState: function () {
-    return { showProjectsMenu: false }; 
+    return { showProjectsMenu: false, showProfileDropdown: false };
   },
 
   showProjectsMenu: function () {
@@ -11,6 +11,14 @@ window.Header = React.createClass({
     this.setState({ showProjectsMenu: false });
   },
 
+  showProfileDropdown: function () {
+    this.setState({ showProfileDropdown: true });
+  },
+
+  hideProfileDropdown: function () {
+    this.setState({ showProfileDropdown: false });
+  },
+
   render: function () {
     var projects_menu;
 
@@ -18,10 +26,22 @@ window.Header = React.createClass({
       projects_menu = (
         <div>
           <div onClick={this.hideProjectsMenu} className="screen" />
-          <ProjectsMenu />;
+          <ProjectsMenu />
         </div>
       );
     }
+
+    var profileDropdown;
+
+    if (this.state.showProfileDropdown) {
+      profileDropdown = (
+        <div>
+          <div onClick={this.hideProfileDropdown} className="screen" />
+          <ProfileDropdown />
+        </div>
+      );
+    }
+
     return (
       <header className="header group">
         <ul>
@@ -39,7 +59,12 @@ window.Header = React.createClass({
               <a className="dropdown-name" href='#'>help & updates</a>
             </div>
             <div className="dropdown">
-              <a className="dropdown-name"href='#'>williamhorton</a>
+              <a
+                className="dropdown-name"
+                onClick={this.showProfileDropdown}>
+                williamhorton
+              </a>
+              {profileDropdown}
             </div>
           </li>
         </ul>
