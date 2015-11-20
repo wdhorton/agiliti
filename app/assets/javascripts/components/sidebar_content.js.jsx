@@ -25,7 +25,7 @@ window.SidebarContent = React.createClass({
             </nav>
           </li>
           <li>
-            <a className="add-story">
+            <a className="add-story" onClick={this.props.createStory}>
               <span>Add Story</span>
             </a>
           </li>

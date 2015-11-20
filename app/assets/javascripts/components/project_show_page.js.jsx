@@ -5,7 +5,7 @@ window.ProjectShowPage = React.createClass({
 
   getStateFromStore: function () {
     var id = parseInt(this.props.params.id);
-    return { project: ProjectStore.find(id), stories: StoryStore.all() };
+    return { project: ProjectStore.find(id), stories: StoryStore.all(), showCreateStoryForm: false };
   },
 
   componentDidMount: function () {
@@ -21,15 +21,27 @@ window.ProjectShowPage = React.createClass({
     this.setState({ stories: StoryStore.all() });
   },
 
+  createStory: function () {
+    this.setState({ showCreateStoryForm: true })
+  },
+
   render: function () {
+
+    var createStoryForm;
+
+    if (this.state.showCreateStoryForm) {
+      createStoryForm = <IceboxPanel />;
+    }
+
     return (
       <div>
         <ProjectShowHeader title={this.state.project.name} />
         <section className="project main">
-          <Sidebar />
+          <Sidebar createStory={this.createStory} />
           <article className="main">
             <section className="panels">
               <CurrentPanel stories={this.state.stories} />
+              {createStoryForm}
             </section>
           </article>
         </section>
