@@ -1,6 +1,6 @@
 window.SignInForm = React.createClass({
   getInitialState: function () {
-    return { username_or_email: "", password: "" };
+    return { username_or_email: "", password: "", remember: false };
   },
 
   mixins: [ReactRouter.History, React.addons.LinkedStateMixin],
@@ -15,18 +15,42 @@ window.SignInForm = React.createClass({
 
   render: function () {
     return (
-      <form className="sign-in-form" onSubmit={ this.submit }>
-        <label>
-          Username or email
-          <input type="text" valueLink={this.linkState("username_or_email")} />
-        </label><br/>
+      <form onSubmit={ this.submit }>
+        <div className="sign-in-text-input">
+          <label>
+            <span>Username or email</span>
+            <input
+              type="text"
+              autofocus
+              maxLength="100"
+              tabIndex="1"
+              valueLink={this.linkState("username_or_email")} />
+          </label>
+        </div>
 
-        <label>
-          Password
-          <input type="password" valueLink={this.linkState("password")} />
-        </label><br/>
+        <div className="sign-in-text-input">
+          <label>
+            <span>Password</span>
+            <input
+              type="password"
+              autoComplete="off"
+              maxLength="100"
+              tabIndex="2"
+              valueLink={this.linkState("password")} />
+          </label>
+        </div>
 
-        <button>sign in</button>
+        <div className="form-footer">
+          <input id="remember-checkbox" tabIndex="3" type="checkbox" checkedLink={this.linkState("remember")} />
+          <label htmlFor="remember-checkbox" className="remember-me-label">
+            Remember Me
+          </label>
+          <a href="#" tabIndex="5" className="forgot-password">Forgot password?</a>
+        </div>
+
+        <button className="sign-in-submit-button">
+          <span>SIGN IN</span>
+        </button>
       </form>
     );
   }
