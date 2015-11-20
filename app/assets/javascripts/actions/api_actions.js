@@ -13,10 +13,19 @@ ApiActions = {
     });
   },
 
+  receiveAllStories: function(stories) {
+    AppDispatcher.dispatch({
+      actionType: StoryConstants.STORIES_RECEIVED,
+      stories: stories
+    });
+  },
+
   receiveAllAccounts: function(accounts) {
     AppDispatcher.dispatch({
       actionType: AccountConstants.ACCOUNTS_RECEIVED,
       accounts: accounts
     });
   },
+
+
 };

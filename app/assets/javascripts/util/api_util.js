@@ -39,9 +39,9 @@ ApiUtil = {
     });
   },
 
-  fetchStories: function () {
+  fetchStories: function (project_id) {
     $.ajax({
-      url: "api/stories",
+      url: "api/projects/" + project_id + "/stories",
       method: "GET",
       dataType: 'json',
       success: function (stories) {

@@ -9,6 +9,11 @@ class Api::ProjectsController < ApplicationController
     render json: project
   end
 
+  def show
+    project = Project.find(params[:id]).includes(:stories)
+    render json: project
+  end
+
   def update
   end
 

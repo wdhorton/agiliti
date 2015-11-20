@@ -5,7 +5,7 @@ window.CurrentPanel = React.createClass({
         <div className="panel-container">
           <CurrentPanelHeader />
           <section className="item-container">
-            <CurrentPanelContent />
+            <CurrentPanelContent stories={this.props.stories} />
           </section>
         </div>
       </div>

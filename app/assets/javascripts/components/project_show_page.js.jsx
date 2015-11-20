@@ -5,7 +5,20 @@ window.ProjectShowPage = React.createClass({
 
   getStateFromStore: function () {
     var id = parseInt(this.props.params.id);
-    return { project: ProjectStore.find(id) };
+    return { project: ProjectStore.find(id), stories: StoryStore.all() };
+  },
+
+  componentDidMount: function () {
+    StoryStore.addChangeListener(this.updateStories);
+    ApiUtil.fetchStories(parseInt(this.props.params.id));
+  },
+
+  componentWillUnmount: function () {
+    StoryStore.removeChangeListener(this.updateStories);
+  },
+
+  updateStories: function () {
+    this.setState({ stories: StoryStore.all() });
   },
 
   render: function () {
@@ -16,7 +29,7 @@ window.ProjectShowPage = React.createClass({
           <Sidebar />
           <article className="main">
             <section className="panels">
-              <CurrentPanel />
+              <CurrentPanel stories={this.state.stories} />
             </section>
           </article>
         </section>

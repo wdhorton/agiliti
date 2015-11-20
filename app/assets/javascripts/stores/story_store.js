@@ -30,12 +30,9 @@
 
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
-        case StoryConstants.PROJECTS_RECEIVED:
+        case StoryConstants.STORIES_RECEIVED:
+          debugger
           resetStories(payload.stories);
-          StoryStore.emit(CHANGE_EVENT);
-          break;
-        case StoryConstants.NEW_PROJECT_RECEIVED:
-          addStory(payload.story);
           StoryStore.emit(CHANGE_EVENT);
           break;
       }
