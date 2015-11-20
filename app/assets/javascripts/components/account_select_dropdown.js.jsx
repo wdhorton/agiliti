@@ -35,7 +35,7 @@ window.AccountSelectDropdown = React.createClass({
                   data-account-id={account.id}
                   data-account-name={account.name}>
                   <span className="select-account-name">{account.name}</span>
-                  <span className="select-account-owner">"You"</span>
+                  <span className="select-account-owner">You</span>
                 </li>
               );
             }.bind(this))

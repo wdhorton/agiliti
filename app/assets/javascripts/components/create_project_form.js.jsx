@@ -62,7 +62,7 @@ window.CreateProjectForm = React.createClass({
           <div className="form-group">
             <label htmlFor="account-id">Account</label>
             <div className="form-select" id="account-id" onClick={this.showAccountDropdown}>
-              {this.state.accountName}
+              {this.state.account_name}
             </div>
             {dropdown}
           </div>

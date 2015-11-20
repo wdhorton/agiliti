@@ -3,9 +3,10 @@ class Api::PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-    Account.create!()
 
     if @person.save
+      @account = Account.create!(name: @person.company)
+      AccountMembership.create!(person_id: @person.id, account_id: @account.id, owner: true)
       sign_in!(@person)
       render json: @person
     else
