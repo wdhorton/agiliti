@@ -23,7 +23,44 @@ window.ModelDetailsForm = React.createClass({
                 </div>
               </section>
             </nav>
-            <nav className="info"></nav>
+            <div className="story info-box group">
+              <ul className="info">
+                <li className="type" key="type">
+                  <em>Story Type</em>
+                  <div className="dropdown story-type">
+                    <a className="selection item-feature"><span>feature</span></a>
+                    <a className="arrow target"></a>
+                  </div>
+                </li>
+                <li className="estimate" key="estimate">
+                  <em>Estimate</em>
+                  <div className="dropdown story-estimate">
+                    <a className="selection"><span>unestimated</span></a>
+                    <a className="arrow target"></a>
+                  </div>
+                </li>
+                <li className="requester" key="requester">
+                  <em>Requester</em>
+                  <div className="dropdown story-requested-by-id">
+                    <a className="selection"><span>william horton</span></a>
+                    <a className="arrow target"></a>
+                  </div>
+                </li>
+                <li className="owner" key="owner">
+                  <em>Owners</em>
+                  <div className="story-owners">
+                    <a className="add-owner">
+                      <span className="none">&lt;none&gt;</span>
+                    </a>
+                  </div>
+                </li>
+                <li className="following">
+                  <em>Follow this story</em>
+                  <input type="checkbox" checked="checked" disabled="true" class="std" />
+                  <span className="count">1 follower</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </aside>
       </form>

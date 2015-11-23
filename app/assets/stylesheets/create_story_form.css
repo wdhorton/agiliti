@@ -38,7 +38,7 @@ section.edit fieldset.name textarea.editor {
   resize: none;
 }
 
-section.controls .actions {
+section.controls .actions button {
   float: left;
 }
 
@@ -97,10 +97,15 @@ section.edit nav.edit .save {
   cursor: pointer;
 }
 
+.controls .cancel:hover {
+  text-decoration: underline;
+}
+
 button.clear {
   background-color: transparent;
   border: 1px solid transparent;
   box-sizing: border-box;
+  font-size: 10px;
 }
 
 .cancel-and-save-buttons .save {
@@ -109,10 +114,9 @@ button.clear {
 
 button.std {
   background-color: #666;
-  border-color: #555;
   font-weight: 600;
   box-shadow: none;
-  border: 1px solid;
+  border: 1px solid #555;
   border-radius: 3px;
   text-align: center;
   color: white;
@@ -122,13 +126,170 @@ button.std {
   font-size: 10px;
 }
 
+button.std:hover {
+  background-color: #2B4C74;
+  border-color: #24364C;
+}
+
 form.model-details .actions button {
   float: left;
   border: 1px solid #999;
   background-color: #EEEEEE;
   height: 22px;
+  width: 22px;
 }
 
 form.model-details .actions button.link {
     position: relative;
+}
+
+.info-box {
+  background-color: #f6f6f6;
+  border: 1px solid #adb0b7;
+  border-radius: 3px;
+  width: 288px;
+  clear: both;
+  font-size: 10px;
+}
+
+.info-box li > em {
+  color: #505050;
+  text-transform: uppercase;
+}
+
+.dropdown.story-type .item-feature:before {
+    /*background-image: ;
+    background-position: 0 -187px;
+    background-repeat: repeat-y;*/
+    height: 16px;
+    width: 16px;
+}
+
+.dropdown.story-type .selection > span {
+  padding-left: 18px;
+  max-width: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown.story-type .selection,
+.dropdown.story-estimate .selection {
+  position: relative;
+}
+
+.dropdown .arrow {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  width: 15px;
+}
+
+.dropdown .arrow:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -3px;
+  margin-left: -3.5px;
+  /*background-image: ;
+  background-position: 0 0;
+  background-repeat: repeat-y;*/
+  height: 6px;
+  width: 7px;
+}
+
+.info-box li {
+  display: block;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 9px;
+  position: relative;
+}
+
+.info-box li .dropdown {
+  float: right;
+}
+
+.dropdown a {
+  text-transform: capitalize;
+}
+
+.dropdown .selection {
+  overflow-y: visible;
+  overflow-x: hidden;
+  color: #000;
+  display: block;
+  text-decoration: none;
+  padding-right: 18px;
+  max-width: 150px;
+}
+
+.info-box li.owner .story-owners {
+  float: right;
+  position: relative;
+}
+
+.info-box li.owner .story-owners .add-owner {
+  float: right;
+  width: 14px;
+  height: 14px;
+  margin: 6px -1px 0 2px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.info-box li.owner a.add-owner {
+  border-color: #f6f6f6;
+}
+
+.info-box li.owner .story-owners a {
+  text-decoration: none;
+}
+
+.info-box li+li {
+  border-top: 1px solid #adb0b7;
+}
+
+.info-box li.owner .story_owners .add_owner:after {
+  content: "";
+  /*background-image: ;
+  background-position: 0 -16px;
+  background-repeat: repeat-y;*/
+  height: 8px;
+  width: 8px;
+  float: left;
+  margin: 3px 0 0 3px;
+}
+
+.info-box li.owner .story-owners a span.none {
+  position: absolute;
+  color: black;
+  margin-top: -7px;
+  right: 17px;
+}
+
+.info-box li select, .info-box li .dropdown,
+.info-box li .value, .info-box li.following input[type="checkbox"] {
+  float: right;
+}
+
+.info_box li.following input[type="checkbox"] {
+  border: none;
+  box-sizing: content-box;
+  margin: 8px 0 0 0;
+  padding: 0;
+  width: 13px;
+}
+
+.info-box li.following .count {
+  margin: 0px 11px 0 0;
+  float: right;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: #0957a4;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
 }
