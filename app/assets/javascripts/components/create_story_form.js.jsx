@@ -1,5 +1,27 @@
 window.CreateStoryForm = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+
+  getInitialState: function () {
+    return { name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
+  },
+
   render: function () {
+    var typeDropdown;
+
+    if (this.state.showTypeDropDown) {
+      typeDropdown = (
+        <section class="visible">
+          <div className="dropdown-menu search">
+            <div className="search-item">
+              <input type="text" className="search" />
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+
+
     return (
       <section className="new edit">
         <form className="model-details">
