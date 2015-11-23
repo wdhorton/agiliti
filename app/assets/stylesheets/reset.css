@@ -1,6 +1,6 @@
 /* Reset */
 
-html, body, h1, h2, h3, button,
+html, body, h1, h2, h3, h4, button,
 a, div, ul, li, p, span, footer, label, section,
 header, fieldset, em {
   padding: 0;

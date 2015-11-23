@@ -293,3 +293,126 @@ form.model-details .actions button.link {
   text-decoration: none;
   letter-spacing: 0px;
 }
+
+section.edit h4 {
+  display: block;
+  color: #000;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 16px;
+  margin-top: 14px;
+  text-transform: uppercase;
+}
+
+section.edit .description .edit-description {
+  text-transform: lowercase;
+  font-size: 11px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #0957a4;
+  background: none;
+  border: none;
+  margin: 0 0 0 3px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.model section.edit .description textarea.editor {
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 41px;
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+  display: none;
+}
+
+textarea.editor.std {
+  margin-bottom: 3px;
+  resize: none;
+}
+
+input.std, .editor.std {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+  padding: 2px 4px 1px 4px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ADB0B7;
+  box-sizing: border-box;
+  border-radius: 3px 3px 0 0;
+}
+
+.labels-maker {
+  position: relative;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+  padding: 2px 4px 1px 4px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ADB0B7;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 3px 2px 3px 5px;
+  min-height: 29px;
+}
+
+.labels-maker .dropdown .selection {
+  text-indent: -9999px;
+  max-width: none;
+}
+
+.labels-maker .dropdown,
+.labels-maker .dropdown .selection {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+}
+
+.dropdown .selection {
+  overflow-y: visible;
+  overflow-x: hidden;
+  color: #000;
+  display: block;
+  text-decoration: none;
+  padding-right: 18px;
+  max-width: 150px;
+  user-select: none;
+}
+
+.labels-maker .selected.labels li.input .search {
+  line-height: 13px;
+  font-size: 11px;
+  border: 0;
+  float: left;
+  margin: 0;
+  resize: none;
+  padding-top: 2px;
+  width: 100%;
+}
+
+.labels-maker .selected.labels li.input {
+  min-width: 20px;
+  max-width: 100%;
+  overflow: hidden;
+  min-height: 16px;
+}
+
+.labels-maker .selected.labels li {
+  float: left;
+  margin: 2px 3px 2px 0;
+  position: relative;
+  font-size: 11px;
+  line-height: 13px;
+  z-index: 1;
+}
+
+.labels-maker .selected.labels li.input .search:focus {
+  outline: 0;
+}
