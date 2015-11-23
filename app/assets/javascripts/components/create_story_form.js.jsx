@@ -2,7 +2,11 @@ window.CreateStoryForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function () {
-    return { name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
+    return { showTypeDropDown: false, name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
+  },
+
+  showTypeDropDown: function () {
+    this.setState({ showTypeDropDown: true });
   },
 
   render: function () {
@@ -15,6 +19,28 @@ window.CreateStoryForm = React.createClass({
             <div className="search-item">
               <input type="text" className="search" />
             </div>
+            <ul>
+              <li data-value="feature" key="feature" className="dropdown-item">
+                <a class="item-feature">
+                  <span className="dropdown-label">feature</span>
+                </a>
+              </li>
+              <li data-value="bug" key="bug" className="dropdown-item">
+                <a class="item-bug">
+                  <span className="dropdown-label">bug</span>
+                </a>
+              </li>
+              <li data-value="chore" key="chore" className="dropdown-item">
+                <a class="item-chore">
+                  <span className="dropdown-label">chore</span>
+                </a>
+              </li>
+              <li data-value="release" className="dropdown-item">
+                <a class="item-release">
+                  <span className="dropdown-label">release</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </section>
       );
@@ -51,8 +77,9 @@ window.CreateStoryForm = React.createClass({
                   <li className="type" key="type">
                     <em>Story Type</em>
                     <div className="dropdown story-type">
-                      <a className="selection item-feature"><span>feature</span></a>
-                      <a className="arrow target"></a>
+                      <a onClick={this.showTypeDropDown} className="selection item-feature"><span>feature</span></a>
+                      <a onClick={this.showTypeDropDown} className="arrow target"></a>
+                      { typeDropdown }
                     </div>
                   </li>
                   <li className="estimate" key="estimate">
