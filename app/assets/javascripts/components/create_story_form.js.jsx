@@ -1,5 +1,9 @@
 window.CreateStoryForm = React.createClass({
   render: function () {
-    return <form></form>;
+    return (
+      <section className="new edit">
+        <ModelDetailsForm />
+      </section>
+    );
   }
 });

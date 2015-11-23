@@ -36,7 +36,7 @@ window.ProjectList = React.createClass({
         <ul>
           {
             this.state.projects.map(function (project) {
-              return <ProjectBox project={project} />;
+              return <ProjectBox key={project.id} project={project} />;
             })
           }
         </ul>

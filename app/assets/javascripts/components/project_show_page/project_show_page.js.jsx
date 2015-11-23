@@ -22,7 +22,7 @@ window.ProjectShowPage = React.createClass({
   },
 
   createStory: function () {
-    this.setState({ showCreateStoryForm: true })
+    this.setState({ showCreateStoryForm: true });
   },
 
   render: function () {

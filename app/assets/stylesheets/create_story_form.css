@@ -1,0 +1,134 @@
+section.edit {
+  background: #e9e7dd;
+  box-shadow: inset #888 0 0 7px;
+  outline: 0;
+  padding: 6px 10px 10px 10px;
+}
+
+.editor.std {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+  padding: 2px 4px 1px 4px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ADB0B7;
+  box-sizing: border-box;
+  border-radius: 3px 3px 0 0;
+}
+
+section.edit fieldset.name {
+  position: relative;
+  margin-right: 10px;
+  padding: 0 28px 0 10px;
+  box-sizing: border-box;
+}
+
+section.edit.new fieldset.name {
+  padding-left: 0px;
+}
+
+section.edit fieldset.name textarea.editor {
+  min-height: 23px;
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 23px;
+  margin-bottom: 3px;
+  resize: none;
+}
+
+section.controls .actions {
+  float: left;
+}
+
+section.controls .cancel-and-save-buttons {
+  float: right;
+  border-radius: 4px;
+  background-color: #DFDCD0;
+  padding: 1px 0px 1px 7px;
+  margin: -1px 0;
+}
+
+section.controls .cancel-and-save-buttons button {
+  float: left;
+}
+
+.panel nav {
+  height: 22px;
+}
+
+nav.edit {
+  width: 290px;
+  position: relative;
+}
+
+section.edit nav.edit .controls {
+  margin: 10px 0;
+}
+
+section.edit .controls {
+  float: left;
+  position: relative;
+}
+
+form.model-details .actions {
+  width: 290px;
+}
+
+section.edit nav.edit .cancel,
+section.edit nav.edit .save {
+  height: 22px;
+  padding: 0;
+}
+
+.controls .cancel {
+  line-height: 8px;
+  width: 40px;
+  float: left;
+  text-align: center;
+  margin-top: 0;
+  margin-right: 6px;
+  position: relative;
+  color: #666;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+button.clear {
+  background-color: transparent;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.cancel-and-save-buttons .save {
+  width: 51px;
+}
+
+button.std {
+  background-color: #666;
+  border-color: #555;
+  font-weight: 600;
+  box-shadow: none;
+  border: 1px solid;
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: 15px;
+  font-size: 10px;
+}
+
+form.model-details .actions button {
+  float: left;
+  border: 1px solid #999;
+  background-color: #EEEEEE;
+  height: 22px;
+}
+
+form.model-details .actions button.link {
+    position: relative;
+}
