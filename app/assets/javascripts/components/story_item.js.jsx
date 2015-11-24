@@ -4,6 +4,15 @@ window.StoryItem = React.createClass({
     ApiUtil.updateStory({ id: this.props.story.id, estimate: e.target.innerHTML });
   },
 
+  updateState: function (e) {
+    e.preventDefault();
+    var state = e.target.innerHTML + "ed";
+    if (state === "restarted") {
+      state = "started";
+    }
+    ApiUtil.updateStory({ id: this.props.story.id, current_state: state });
+  },
+
   render: function () {
 
     var labels;
@@ -18,10 +27,37 @@ window.StoryItem = React.createClass({
     //   );
     // }
 
-    var estimate;
+    var itemButton;
 
-    if (this.props.story.estimate === -1) {
-      estimate = (
+    if (this.props.story.estimate !== -1 && this.props.story.current_state !== "accepted") {
+      var word;
+
+      if (this.props.story.current_state === "unstarted") {
+        word = "start";
+      } else if (this.props.story.current_state === "started") {
+        word= "finish";
+      } else if (this.props.story.current_state === "finished") {
+        word = "deliver";
+      } else if (this.props.story.current_state === "rejected") {
+        word = "restart";
+      }
+
+      itemButton = (
+        <span className="state" onClick={this.updateState}>
+          <label className={ "state button " + word } tabIndex="-1">{word}</label>
+        </span>
+      );
+
+      if (this.props.story.current_state === "delivered") {
+        itemButton = (
+          <span className="state" onClick={this.updateState}>
+            <label className="state button reject" tabIndex="-1">reject</label>
+            <label className="state button accept" tabIndex="-1">accept</label>
+          </span>
+        );
+      }
+    } else {
+      itemButton = (
         <span className="estimate" onClick={this.updateEstimate}>
           <label className="estimate_0">0</label>
           <label className="estimate_1">1</label>
@@ -38,7 +74,7 @@ window.StoryItem = React.createClass({
           <a className="expander" data-storyid={this.props.story.id} onClick={this.props.editStory}></a>
           <a className="selector"></a>
           <span className="meta"></span>
-          {estimate}
+          {itemButton}
           <span className="name">
             <span className="story-name">
               {this.props.story.name}
