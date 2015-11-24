@@ -50,6 +50,37 @@
   background-color: #d1e0ed;
 }
 
+.preview .button.state,
+.preview .estimate,
+.preview .reveal.button {
+  float: right;
+  margin: 0 0 0 2px;
+}
+
+.preview .estimate {
+  cursor: default;
+  height: 19px;
+}
+
+.preview .estimate label {
+  border-bottom: 1px solid #888;
+  min-width: 12px;
+  color: #3F79A5;
+  cursor: pointer;
+  float: left;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 1;
+  margin-left: 4px;
+  padding-bottom: 2px;
+  height: 14px;
+  text-align: center;
+}
+
+.preview span.estimate {
+  margin-top: 2px;
+}
+
 a {
   cursor: pointer;
 }

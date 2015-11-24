@@ -30,7 +30,6 @@ window.ProjectShowPage = React.createClass({
   },
 
   updateStories: function () {
-    debugger;
     this.setState({ stories: StoryStore.all() });
   },
 
