@@ -30,49 +30,50 @@ window.SidebarContent = React.createClass({
             </a>
           </li>
         </ul>
+
         <form className="panels">
           <ul>
-            <li className="my-work">
+            <li data-panel="showMyWork" onClick={this.props.togglePanel} className="my-work">
               <label>
                 <span className="panel-name">my work</span>
               </label>
             </li>
-            <li className="current">
+            <li data-panel="showCurrent" onClick={this.props.togglePanel} className="current">
               <label>
                 <span className="panel-name">current</span>
               </label>
             </li>
-            <li className="backlog">
+            <li data-panel="showBacklog" onClick={this.props.togglePanel} className="backlog">
               <label>
                 <span className="panel-name">backlog</span>
               </label>
             </li>
-            <li className="icebox">
+            <li data-panel="showIcebox" onClick={this.props.togglePanel} className="icebox">
               <label>
                 <span className="panel-name">icebox</span>
               </label>
             </li>
-            <li className="done">
+            <li data-panel="showDone" onClick={this.props.togglePanel} className="done">
               <label>
                 <span className="panel-name">done</span>
               </label>
             </li>
-            <li className="epics">
+            <li data-panel="show" onClick={this.props.togglePanel} className="epics">
               <label>
                 <span className="panel-name">epics</span>
               </label>
             </li>
-            <li className="labels">
+            <li data-panel="showLabels" onClick={this.props.togglePanel} className="labels">
               <label>
                 <span className="panel-name">labels</span>
               </label>
             </li>
-            <li className="charts">
+            <li data-panel="showCharts" onClick={this.props.togglePanel} className="charts">
               <label>
                 <span className="panel-name">charts</span>
               </label>
             </li>
-            <li className="project-history">
+            <li data-panel="showProjectHistory" onClick={this.props.togglePanel} className="project-history">
               <label>
                 <span className="panel-name">project history</span>
               </label>

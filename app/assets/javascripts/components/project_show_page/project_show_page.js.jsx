@@ -1,11 +1,24 @@
 window.ProjectShowPage = React.createClass({
   getInitialState: function () {
-    return this.getStateFromStore();
+    return $.extend({}, this.getStateFromStore(), {
+      showMyWork: false,
+      showCurrent: true,
+      showBacklog: true,
+      showIcebox: true,
+      showDone: false,
+      showEpics: false,
+      showLabels: false,
+      showCharts: false,
+      showProjectHistory: false
+    });
   },
+
+  panels: [MyWork, Current, Backlog, Icebox, Done],
+  // , Epics, Labels, Charts, ProjectHistory],
 
   getStateFromStore: function () {
     var id = parseInt(this.props.params.id);
-    return { project: ProjectStore.find(id), stories: StoryStore.all(), showCreateStoryForm: false };
+    return { project: ProjectStore.find(id), stories: StoryStore.all()};
   },
 
   componentDidMount: function () {
@@ -22,26 +35,37 @@ window.ProjectShowPage = React.createClass({
   },
 
   createStory: function () {
-    this.setState({ showCreateStoryForm: true });
+    this.setState({ showIcebox: true });
+  },
+
+  togglePanel: function (e) {
+    panel = e.currentTarget.dataset.panel;
+    newState = {};
+    newState[panel] = !this.state[panel];
+    this.setState(newState);
+  },
+
+  activePanels: function () {
+    return this.panels.filter(function (panel) {
+      var stateString = "show" + panel.displayName;
+      return this.state[stateString];
+    }.bind(this));
   },
 
   render: function () {
-
-    var createStoryForm;
-
-    if (this.state.showCreateStoryForm) {
-      createStoryForm = <IceboxPanel projectId={this.state.project.id} />;
-    }
 
     return (
       <div>
         <ProjectShowHeader title={this.state.project.name} />
         <section className="project main">
-          <Sidebar createStory={this.createStory} />
+          <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} />
           <article className="main">
             <section className="panels">
-              <CurrentPanel stories={this.state.stories} />
-              {createStoryForm}
+              {
+                this.activePanels().map(function (panel) {
+                  return React.createElement(panel, { stories: this.state.stories, projectId: this.state.project.id });
+                }.bind(this))
+              }
             </section>
           </article>
         </section>

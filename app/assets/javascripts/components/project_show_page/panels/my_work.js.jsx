@@ -1,12 +1,12 @@
-window.IceboxPanel = React.createClass({
+window.MyWork = React.createClass({
   render: function () {
 
     return (
-      <div className="panel icebox">
+      <div className="panel my-work">
         <div className="panel-container">
-          <IceboxPanelHeader />
+          <PanelHeader title="My Work" />
           <section className="item-container">
-            <IceboxPanelContent projectId={this.props.projectId} />
+            <CurrentPanelContent stories={this.props.stories} />
           </section>
         </div>
       </div>
