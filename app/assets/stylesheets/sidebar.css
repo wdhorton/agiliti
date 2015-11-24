@@ -260,3 +260,7 @@ nav .velocity span {
   cursor: pointer;
   min-height: 16px;
 }
+
+.panels .active span {
+  color: #8AC7FF;
+}

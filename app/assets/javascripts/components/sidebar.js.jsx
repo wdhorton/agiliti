@@ -3,7 +3,7 @@ window.Sidebar = React.createClass({
     return (
       <div className="sidebar-wrapper">
         <SidebarHeader />
-        <SidebarContent togglePanel={this.props.togglePanel} createStory={this.props.createStory} />
+        <SidebarContent togglePanel={this.props.togglePanel} createStory={this.props.createStory} activePanels={this.props.activePanels} />
         <SidebarFooter />
       </div>
     );

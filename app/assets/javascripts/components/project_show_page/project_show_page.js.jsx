@@ -13,8 +13,7 @@ window.ProjectShowPage = React.createClass({
     });
   },
 
-  panels: [MyWork, Current, Backlog, Icebox, Done],
-  // , Epics, Labels, Charts, ProjectHistory],
+  panels: [MyWork, Current, Backlog, Icebox, Done, Epics, Labels, Charts, ProjectHistory],
 
   getStateFromStore: function () {
     var id = parseInt(this.props.params.id);
@@ -58,7 +57,7 @@ window.ProjectShowPage = React.createClass({
       <div>
         <ProjectShowHeader title={this.state.project.name} />
         <section className="project main">
-          <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} />
+          <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">
             <section className="panels">
               {
