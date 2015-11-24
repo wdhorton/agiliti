@@ -6,7 +6,6 @@ window.Backlog = React.createClass({
         <div className="panel-container">
           <PanelHeader title="Backlog" />
           <section className="item-container">
-            <CurrentPanelContent stories={this.props.stories} />
           </section>
         </div>
       </div>
