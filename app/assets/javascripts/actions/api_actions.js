@@ -27,6 +27,13 @@ ApiActions = {
     });
   },
 
+  receiveUpdatedStory: function(story) {
+    AppDispatcher.dispatch({
+      actionType: StoryConstants.UPDATED_STORY_RECEIVED,
+      story: story
+    });
+  },
+
   receiveAllAccounts: function(accounts) {
     AppDispatcher.dispatch({
       actionType: AccountConstants.ACCOUNTS_RECEIVED,

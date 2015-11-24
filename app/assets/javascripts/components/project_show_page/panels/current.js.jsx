@@ -22,7 +22,7 @@ window.Current = React.createClass({
             <section className="items-container">
               <div className="panel-content">
                 <CurrentIterationHeader />
-                <StoryList stories={this.currentStories()} />
+                <StoryList projectId={this.props.projectId} stories={this.currentStories()} />
               </div>
             </section>
           </section>

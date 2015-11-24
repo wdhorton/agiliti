@@ -18,7 +18,7 @@ window.StoryList = React.createClass({
         {
           this.props.stories.map(function (story) {
             if (story.id === this.state.editingId) {
-              return <StoryForm hideStoryForm={this.hideStoryForm} story={story} />;
+              return <StoryForm projectId={this.props.projectId} hideStoryForm={this.hideStoryForm} story={story} />;
             } else {
               return <StoryItem editStory={this.editStory} story={story} />;
             }

@@ -35,7 +35,7 @@ window.Icebox = React.createClass({
             <section className="items-container">
               <div className="panel-content">
                 { createStory }
-                <StoryList stories={this.unscheduledStories()} />
+                <StoryList projectId={this.props.projectId} stories={this.unscheduledStories()} />
               </div>
             </section>
           </section>

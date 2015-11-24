@@ -61,4 +61,16 @@ ApiUtil = {
       }
     });
   },
+
+  updateStory: function (story) {
+    $.ajax({
+      url: "api/stories/" + story.id,
+      method: "PATCH",
+      data: { story : story },
+      dataType: 'json',
+      success: function (story) {
+        ApiActions.receiveUpdatedStory(story);
+      }
+    });
+  }
 };

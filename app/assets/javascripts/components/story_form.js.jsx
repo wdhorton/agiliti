@@ -22,6 +22,13 @@ window.StoryForm = React.createClass({
     ApiUtil.createNewStory(newStory);
   },
 
+  updateStory: function (e) {
+    e.preventDefault();
+    this.props.hideStoryForm(e);
+    story = $.extend({}, this.state, { project_id: this.props.projectId });
+    ApiUtil.updateStory(story);
+  },
+
   showTypeDropdown: function () {
     this.setState({ showTypeDropdown: true });
   },
@@ -144,6 +151,8 @@ window.StoryForm = React.createClass({
       collapser = <a onClick={ this.props.hideStoryForm } className="collapser"></a>;
     }
 
+    var callback = this.props.story ? this.updateStory : this.createNewStory;
+
 
     return (
       <section className="new edit">
@@ -166,7 +175,7 @@ window.StoryForm = React.createClass({
                   </div>
                   <div className="cancel-and-save-buttons">
                     <button onClick={this.props.hideStoryForm} className="cancel clear" tabIndex="-1">Cancel</button>
-                    <button onClick={this.createNewStory} className="button std save" tabIndex="-1">Save</button>
+                    <button onClick={callback} className="button std save" tabIndex="-1">Save</button>
                   </div>
                 </section>
               </nav>

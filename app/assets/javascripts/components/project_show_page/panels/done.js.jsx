@@ -13,7 +13,7 @@ window.Done = React.createClass({
           <section className="item-container">
             <section className="items-container">
               <div className="panel-content">
-                <StoryList stories={this.acceptedStories()} />
+                <StoryList projectId={this.props.projectId} stories={this.acceptedStories()} />
               </div>
             </section>
           </section>

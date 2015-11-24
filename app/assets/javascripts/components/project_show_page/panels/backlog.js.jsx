@@ -14,7 +14,7 @@ window.Backlog = React.createClass({
           <section className="item-container">
             <section className="items-container">
               <div className="panel-content">
-                <StoryList stories={this.unstartedStories()} />
+                <StoryList projectId={this.props.projectId} stories={this.unstartedStories()} />
               </div>
             </section>
           </section>

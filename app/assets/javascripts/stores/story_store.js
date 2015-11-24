@@ -9,6 +9,11 @@
     _stories.push(story);
   };
 
+  var updateStory = function (story) {
+    _stories = _stories.filter(function (s) { return s.id !== story.id; });
+    addStory(story);
+  };
+
   var CHANGE_EVENT = "change";
 
   root.StoryStore = $.extend({}, EventEmitter.prototype, {
@@ -36,6 +41,10 @@
           break;
         case StoryConstants.NEW_STORY_RECEIVED:
           addStory(payload.story);
+          StoryStore.emit(CHANGE_EVENT);
+          break;
+        case StoryConstants.UPDATED_STORY_RECEIVED:
+          updateStory(payload.story);
           StoryStore.emit(CHANGE_EVENT);
           break;
       }
