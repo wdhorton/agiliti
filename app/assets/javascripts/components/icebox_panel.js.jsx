@@ -6,7 +6,7 @@ window.IceboxPanel = React.createClass({
         <div className="panel-container">
           <IceboxPanelHeader />
           <section className="item-container">
-            <IceboxPanelContent />
+            <IceboxPanelContent projectId={this.props.projectId} />
           </section>
         </div>
       </div>

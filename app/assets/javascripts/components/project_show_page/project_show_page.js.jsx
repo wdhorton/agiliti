@@ -30,7 +30,7 @@ window.ProjectShowPage = React.createClass({
     var createStoryForm;
 
     if (this.state.showCreateStoryForm) {
-      createStoryForm = <IceboxPanel />;
+      createStoryForm = <IceboxPanel projectId={this.state.project.id} />;
     }
 
     return (

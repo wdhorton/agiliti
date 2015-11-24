@@ -2,7 +2,22 @@ window.CreateStoryForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function () {
-    return { showTypeDropdown: false, name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
+    return {
+      showTypeDropdown: false,
+      showEstimateDropdown: false,
+      name: "",
+      story_type: "feature",
+      estimate: -1,
+      requester: "",
+      owners: [],
+      description: ""
+    };
+  },
+
+  createNewStory: function (e) {
+    e.preventDefault();
+    newStory = $.extend({}, this.state, { project_id: this.props.projectId });
+    ApiUtil.createNewStory(newStory);
   },
 
   showTypeDropdown: function () {
@@ -13,36 +28,54 @@ window.CreateStoryForm = React.createClass({
     this.setState({ showTypeDropdown: false });
   },
 
+  showEstimateDropdown: function () {
+    this.setState({ showEstimateDropdown: true });
+  },
+
+  hideEstimateDropdown: function () {
+    this.setState({ showEstimateDropdown: false });
+  },
+
+  selectType: function (e) {
+    data = e.currentTarget.dataset;
+    this.setState({ showTypeDropdown: false, story_type: data.value });
+  },
+
+  selectEstimate: function (e) {
+    data = e.currentTarget.dataset;
+    this.setState({ showEstimateDropdown: false, estimate: parseInt(data.value) });
+  },
+
   render: function () {
-    var typeDropdown;
+    var typeDropdown, estimateDropdown;
 
     if (this.state.showTypeDropdown) {
       typeDropdown = (
         <div>
           <div className="screen" onClick={this.hideTypeDropdown}></div>
-          <section class="visible">
+          <section className="visible">
             <div className="dropdown-menu search">
               <div className="search-item">
                 <input type="text" className="search" />
               </div>
               <ul>
-                <li data-value="feature" key="feature" className="dropdown-item">
-                  <a class="item-feature">
+                <li onClick={this.selectType} data-value="feature" key="feature" className="dropdown-item">
+                  <a className="item-feature">
                     <span className="dropdown-label">feature</span>
                   </a>
                 </li>
-                <li data-value="bug" key="bug" className="dropdown-item">
-                  <a class="item-bug">
+                <li onClick={this.selectType} data-value="bug" key="bug" className="dropdown-item">
+                  <a className="item-bug">
                     <span className="dropdown-label">bug</span>
                   </a>
                 </li>
-                <li data-value="chore" key="chore" className="dropdown-item">
-                  <a class="item-chore">
+                <li onClick={this.selectType} data-value="chore" key="chore" className="dropdown-item">
+                  <a className="item-chore">
                     <span className="dropdown-label">chore</span>
                   </a>
                 </li>
-                <li data-value="release" className="dropdown-item">
-                  <a class="item-release">
+                <li onClick={this.selectType} data-value="release" key="release" className="dropdown-item">
+                  <a className="item-release">
                     <span className="dropdown-label">release</span>
                   </a>
                 </li>
@@ -53,11 +86,64 @@ window.CreateStoryForm = React.createClass({
       );
     }
 
+    if (this.state.showEstimateDropdown) {
+      estimateDropdown = (
+        <div>
+          <div className="screen" onClick={this.hideEstimateDropdown}></div>
+          <section className="visible">
+            <div className="dropdown-menu search">
+              <div className="search-item">
+                <input type="text" className="search" />
+              </div>
+              <ul>
+                <li onClick={this.selectEstimate} data-value="-1" key="unestimated" className="dropdown-item">
+                  <a className="item-unestimated">
+                    <span className="dropdown-label">unestimated</span>
+                  </a>
+                </li>
+                <li onClick={this.selectEstimate} data-value="0" key="0" className="dropdown-item">
+                  <a className="item-0">
+                    <span className="dropdown-label">0 Points</span>
+                  </a>
+                </li>
+                <li onClick={this.selectEstimate} data-value="1" key="1" className="dropdown-item">
+                  <a className="item-1">
+                    <span className="dropdown-label">1 Point</span>
+                  </a>
+                </li>
+                <li onClick={this.selectEstimate} data-value="2" className="dropdown-item">
+                  <a className="item-2">
+                    <span className="dropdown-label">2 Points</span>
+                  </a>
+                </li>
+                <li onClick={this.selectEstimate} data-value="3" className="dropdown-item">
+                  <a className="item-3">
+                    <span className="dropdown-label">3 Points</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    var estimate;
+
+    if (this.state.estimate === -1) {
+      estimate = "Unestimated";
+    } else if (this.state.estimate === 1) {
+      estimate = "1 Point";
+    } else {
+      estimate = this.state.estimate + " Points";
+    }
+
+
     return (
       <section className="new edit">
         <form className="model-details">
           <fieldset className="story name">
-            <textarea className="editor std" placeholder="Story title" />
+            <textarea className="editor std" placeholder="Story title" valueLink={this.linkState("name")} />
           </fieldset>
           <aside>
             <div className="wrapper">
@@ -72,8 +158,8 @@ window.CreateStoryForm = React.createClass({
                     <button title="Delete this story" className="delete link" tabIndex="-1" disabled></button>
                   </div>
                   <div className="cancel-and-save-buttons">
-                    <button className="cancel clear" tabIndex="-1">Cancel</button>
-                    <button className="button std save" tabIndex="-1">Save</button>
+                    <button onClick={this.props.hideCreateStoryForm} className="cancel clear" tabIndex="-1">Cancel</button>
+                    <button onClick={this.createNewStory} className="button std save" tabIndex="-1">Save</button>
                   </div>
                 </section>
               </nav>
@@ -81,8 +167,8 @@ window.CreateStoryForm = React.createClass({
                 <ul className="info">
                   <li className="type" key="type">
                     <em>Story Type</em>
-                    <div className="dropdown story-type">
-                      <a onClick={this.showTypeDropdown} className="selection item-feature"><span>feature</span></a>
+                    <div className="dropdown story-type" >
+                      <a onClick={this.showTypeDropdown} className="selection item-feature"><span>{ this.state.story_type }</span></a>
                       <a onClick={this.showTypeDropdown} className="arrow target"></a>
                       { typeDropdown }
                     </div>
@@ -90,8 +176,9 @@ window.CreateStoryForm = React.createClass({
                   <li className="estimate" key="estimate">
                     <em>Estimate</em>
                     <div className="dropdown story-estimate">
-                      <a className="selection"><span>unestimated</span></a>
-                      <a className="arrow target"></a>
+                      <a onClick={this.showEstimateDropdown} className="selection"><span>{ estimate }</span></a>
+                      <a onClick={this.showEstimateDropdown} className="arrow target"></a>
+                      { estimateDropdown }
                     </div>
                   </li>
                   <li className="requester" key="requester">
@@ -111,7 +198,7 @@ window.CreateStoryForm = React.createClass({
                   </li>
                   <li className="following">
                     <em>Follow this story</em>
-                    <input type="checkbox" checked="checked" disabled="true" class="std" />
+                    <input type="checkbox" checked="checked" disabled="true" className="std" />
                     <span className="count">1 follower</span>
                   </li>
                 </ul>
@@ -125,7 +212,7 @@ window.CreateStoryForm = React.createClass({
             Description
             <button className="edit-description">(edit)</button>
           </h4>
-          <textarea className="editor std description" />
+          <textarea className="editor std description" valueLink={this.linkState("description")} />
         </form>
 
         <form className="label-container full">

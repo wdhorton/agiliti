@@ -48,5 +48,17 @@ ApiUtil = {
         ApiActions.receiveAllStories(stories);
       }
     });
-  }
+  },
+
+  createNewStory: function (story) {
+    $.ajax({
+      url: "api/stories",
+      method: "POST",
+      data: { story : story },
+      dataType: 'json',
+      success: function (project) {
+        ApiActions.receiveNewStory(story);
+      }
+    });
+  },
 };

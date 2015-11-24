@@ -34,6 +34,10 @@
           resetStories(payload.stories);
           StoryStore.emit(CHANGE_EVENT);
           break;
+        case StoryConstants.NEW_STORY_RECEIVED:
+          addStory(payload.story);
+          StoryStore.emit(CHANGE_EVENT);
+          break;
       }
     })
 
