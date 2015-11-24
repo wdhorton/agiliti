@@ -49,7 +49,7 @@ window.StoryForm = React.createClass({
   },
 
   render: function () {
-    var typeDropdown, estimateDropdown;
+    var typeDropdown, estimateDropdown, collapser;
 
     if (this.state.showTypeDropdown) {
       typeDropdown = (
@@ -140,12 +140,17 @@ window.StoryForm = React.createClass({
       estimate = this.state.estimate + " Points";
     }
 
+    if (this.props.story) {
+      collapser = <a onClick={ this.props.hideStoryForm } className="collapser"></a>;
+    }
+
 
     return (
       <section className="new edit">
         <form className="model-details">
           <fieldset className="story name">
             <textarea className="editor std" placeholder="Story title" valueLink={this.linkState("name")} />
+            { collapser }
           </fieldset>
           <aside>
             <div className="wrapper">

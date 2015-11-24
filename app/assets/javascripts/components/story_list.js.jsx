@@ -7,13 +7,18 @@ window.StoryList = React.createClass({
     this.setState({ editingId: parseInt(e.currentTarget.dataset.storyid) });
   },
 
+  hideStoryForm: function (e) {
+    e.preventDefault();
+    this.setState({ editingId: -1 });
+  },
+
   render: function () {
     return (
       <ul>
         {
           this.props.stories.map(function (story) {
             if (story.id === this.state.editingId) {
-              return <StoryForm story={story} />;
+              return <StoryForm hideStoryForm={this.hideStoryForm} story={story} />;
             } else {
               return <StoryItem editStory={this.editStory} story={story} />;
             }

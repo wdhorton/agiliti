@@ -38,6 +38,17 @@ section.edit fieldset.name textarea.editor {
   resize: none;
 }
 
+section.edit fieldset.name .collapser {
+    position: absolute;
+    height: 13px;
+    /*background-image: ;
+    background-position: 0 -119px;
+    background-repeat: repeat-y;*/
+    width: 13px;
+    top: 3px;
+    left: -7px;
+}
+
 section.controls .actions button {
   float: left;
 }
