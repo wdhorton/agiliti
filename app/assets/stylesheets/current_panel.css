@@ -2,11 +2,52 @@
   position: relative;
 }
 
+.story.feature .preview,
+.story.bug .preview,
+.story.chore .preview {
+  background-color: #f4f4f4;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ddd;
+}
+
 .story.accepted .preview {
   background-color: #daebcf;
   border-top: 1px solid #eefce2;
   border-bottom: 1px solid #c3d5b4;
   cursor: default;
+}
+
+.story.started .preview,
+.story.finished .preview,
+.story.delivered .preview,
+.story.rejected .preview {
+    background-color: #f3f3d1;
+    border-bottom: 1px solid #dbdbb0;
+}
+
+.story.unscheduled .preview {
+  background-color: #e4eff7;
+}
+
+.story.feature .preview:hover,
+.story.bug .preview:hover,
+.story.chore .preview:hover {
+    background-color: #e6e6e6;
+}
+
+.story.accepted .preview:hover {
+    background-color: #c6d9b7;
+}
+
+.story.started .preview:hover,
+.story.finished .preview:hover,
+.story.delivered .preview:hover,
+.story.rejected .preview:hover {
+    background-color: #f0f0c6;
+}
+
+.story.unscheduled .preview:hover {
+  background-color: #d1e0ed;
 }
 
 a {
@@ -91,3 +132,5 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
+
+.story-name

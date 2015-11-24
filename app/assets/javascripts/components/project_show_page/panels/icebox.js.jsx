@@ -1,13 +1,45 @@
 window.Icebox = React.createClass({
+  getInitialState: function () {
+    return { showCreateStoryForm: true };
+  },
+
+  hideCreateStoryForm: function (e) {
+    e.preventDefault();
+    this.setState({ showCreateStoryForm: false });
+  },
+
+  unscheduledStories: function () {
+    return this.props.stories.filter(function (story) {
+      return story.current_state === "unscheduled";
+    }.bind(this));
+  },
+
   render: function () {
+    var createStory;
+
+    if (this.state.showCreateStoryForm) {
+      createStory = (
+        <CreateStoryForm
+          hideCreateStoryForm={this.hideCreateStoryForm}
+          projectId={this.props.projectId} />
+      );
+    }
 
     return (
       <div className="panel icebox">
         <div className="panel-container">
+
           <PanelHeader title="Icebox" />
+
           <section className="item-container">
-            <IceboxPanelContent projectId={this.props.projectId} />
+            <section className="items-container">
+              <div className="panel-content">
+                { createStory }
+                <StoryList stories={this.unscheduledStories()} />
+              </div>
+            </section>
           </section>
+
         </div>
       </div>
     );

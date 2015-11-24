@@ -15,7 +15,7 @@ window.StoryItem = React.createClass({
 
 
     return (
-      <li className="story accepted">
+      <li className={ "story " + this.props.story.current_state + " " + this.props.story.story_type }>
         <header className="preview">
           <a className="expander"></a>
           <a className="selector"></a>

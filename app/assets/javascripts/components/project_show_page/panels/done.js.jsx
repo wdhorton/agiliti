@@ -1,12 +1,21 @@
 window.Done = React.createClass({
-  render: function () {
+  acceptedStories: function () {
+    return this.props.stories.filter(function (story) {
+      return story.current_state === "accepted";
+    }.bind(this));
+  },
 
+  render: function () {
     return (
       <div className="panel done">
         <div className="panel-container">
           <PanelHeader title="Done" />
           <section className="item-container">
-            <CurrentPanelContent stories={this.props.stories} />
+            <section className="items-container">
+              <div className="panel-content">
+                <StoryList stories={this.acceptedStories()} />
+              </div>
+            </section>
           </section>
         </div>
       </div>

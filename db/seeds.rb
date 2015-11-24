@@ -9,4 +9,15 @@
 william = Person.create!(name: "William H", email: "william@example.com", username: "wdh", password: "password", company: "App Academy")
 personal = Account.create!(name: "William Personal", plan: "free", status: "active")
 AccountMembership.create!(person_id: william.id, account_id: personal.id, owner:true)
-Project.create!(name: "Test project", start_time: "2015-11-18 09:21:37 -0500", account_id: personal.id)
+project = Project.create!(name: "Test project", start_time: "2015-11-18 09:21:37 -0500", account_id: personal.id)
+
+["accepted", "started", "unstarted", "unscheduled"].each.with_index do |state, i|
+  5.times do |j|
+    Story.create!(
+      name: "Story #{5 * i + j}",
+      story_type: "feature",
+      current_state: state,
+      project_id: project.id
+    )
+  end
+end
