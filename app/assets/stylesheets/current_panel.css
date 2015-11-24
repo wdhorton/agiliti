@@ -246,6 +246,18 @@ a {
   line-height: 19px;
 }
 
+.meta:before {
+  content: '★';
+  color: #D4BC35;
+  float: left;
+  height: 15px;
+}
+
+.meta:before {
+  margin-left: -18px;
+  width: 18px;
+}
+
 .story .preview .name {
   margin: 2px 5px 3px 73px;
 }
