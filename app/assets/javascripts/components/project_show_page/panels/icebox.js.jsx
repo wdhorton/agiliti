@@ -1,6 +1,6 @@
 window.Icebox = React.createClass({
   getInitialState: function () {
-    return { showCreateStoryForm: true };
+    return { showCreateStoryForm: false };
   },
 
   hideCreateStoryForm: function (e) {
