@@ -19,8 +19,8 @@ window.Icebox = React.createClass({
 
     if (this.state.showCreateStoryForm) {
       createStory = (
-        <CreateStoryForm
-          hideCreateStoryForm={this.hideCreateStoryForm}
+        <StoryForm
+          hideStoryForm={this.hideCreateStoryForm}
           projectId={this.props.projectId} />
       );
     }

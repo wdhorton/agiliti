@@ -1,17 +1,19 @@
-window.CreateStoryForm = React.createClass({
+window.StoryForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function () {
-    return {
-      showTypeDropdown: false,
-      showEstimateDropdown: false,
+    var defaults = {
       name: "",
       story_type: "feature",
       estimate: -1,
       requester: "",
       owners: [],
-      description: ""
+      description: "",
+      showTypeDropdown: false,
+      showEstimateDropdown: false
     };
+
+    return $.extend({}, defaults, this.props.story);
   },
 
   createNewStory: function (e) {
@@ -158,7 +160,7 @@ window.CreateStoryForm = React.createClass({
                     <button title="Delete this story" className="delete link" tabIndex="-1" disabled></button>
                   </div>
                   <div className="cancel-and-save-buttons">
-                    <button onClick={this.props.hideCreateStoryForm} className="cancel clear" tabIndex="-1">Cancel</button>
+                    <button onClick={this.props.hideStoryForm} className="cancel clear" tabIndex="-1">Cancel</button>
                     <button onClick={this.createNewStory} className="button std save" tabIndex="-1">Save</button>
                   </div>
                 </section>

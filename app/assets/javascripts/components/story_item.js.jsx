@@ -17,7 +17,7 @@ window.StoryItem = React.createClass({
     return (
       <li className={ "story " + this.props.story.current_state + " " + this.props.story.story_type }>
         <header className="preview">
-          <a className="expander"></a>
+          <a className="expander" data-storyid={this.props.story.id} onClick={this.props.editStory}></a>
           <a className="selector"></a>
           <span className="meta"></span>
           <span className="name">
