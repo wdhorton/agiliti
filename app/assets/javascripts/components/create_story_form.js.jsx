@@ -2,51 +2,56 @@ window.CreateStoryForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function () {
-    return { showTypeDropDown: false, name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
+    return { showTypeDropdown: false, name: "", type: "feature", estimate: "unestimated", requester: "", owners: []};
   },
 
-  showTypeDropDown: function () {
-    this.setState({ showTypeDropDown: true });
+  showTypeDropdown: function () {
+    this.setState({ showTypeDropdown: true });
+  },
+
+  hideTypeDropdown: function () {
+    this.setState({ showTypeDropdown: false });
   },
 
   render: function () {
     var typeDropdown;
 
-    if (this.state.showTypeDropDown) {
+    if (this.state.showTypeDropdown) {
       typeDropdown = (
-        <section class="visible">
-          <div className="dropdown-menu search">
-            <div className="search-item">
-              <input type="text" className="search" />
+        <div>
+          <div className="screen" onClick={this.hideTypeDropdown}></div>
+          <section class="visible">
+            <div className="dropdown-menu search">
+              <div className="search-item">
+                <input type="text" className="search" />
+              </div>
+              <ul>
+                <li data-value="feature" key="feature" className="dropdown-item">
+                  <a class="item-feature">
+                    <span className="dropdown-label">feature</span>
+                  </a>
+                </li>
+                <li data-value="bug" key="bug" className="dropdown-item">
+                  <a class="item-bug">
+                    <span className="dropdown-label">bug</span>
+                  </a>
+                </li>
+                <li data-value="chore" key="chore" className="dropdown-item">
+                  <a class="item-chore">
+                    <span className="dropdown-label">chore</span>
+                  </a>
+                </li>
+                <li data-value="release" className="dropdown-item">
+                  <a class="item-release">
+                    <span className="dropdown-label">release</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <ul>
-              <li data-value="feature" key="feature" className="dropdown-item">
-                <a class="item-feature">
-                  <span className="dropdown-label">feature</span>
-                </a>
-              </li>
-              <li data-value="bug" key="bug" className="dropdown-item">
-                <a class="item-bug">
-                  <span className="dropdown-label">bug</span>
-                </a>
-              </li>
-              <li data-value="chore" key="chore" className="dropdown-item">
-                <a class="item-chore">
-                  <span className="dropdown-label">chore</span>
-                </a>
-              </li>
-              <li data-value="release" className="dropdown-item">
-                <a class="item-release">
-                  <span className="dropdown-label">release</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
+          </section>
+        </div>
       );
     }
-
-
 
     return (
       <section className="new edit">
@@ -77,8 +82,8 @@ window.CreateStoryForm = React.createClass({
                   <li className="type" key="type">
                     <em>Story Type</em>
                     <div className="dropdown story-type">
-                      <a onClick={this.showTypeDropDown} className="selection item-feature"><span>feature</span></a>
-                      <a onClick={this.showTypeDropDown} className="arrow target"></a>
+                      <a onClick={this.showTypeDropdown} className="selection item-feature"><span>feature</span></a>
+                      <a onClick={this.showTypeDropdown} className="arrow target"></a>
                       { typeDropdown }
                     </div>
                   </li>

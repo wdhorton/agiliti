@@ -424,6 +424,7 @@ input.std, .editor.std {
   top: 100%;
   margin: -2px -2px 0 0;
   width: 200px;
+  z-index: 100;
 }
 
 .dropdown section .dropdown-menu {
@@ -433,9 +434,6 @@ input.std, .editor.std {
   max-height: 300px;
   min-width: 120px;
   overflow: hidden;
-}
-
-.dropdown-menu {
   background-color: #fff;
   border-radius: 4px;
   box-sizing: border-box;
