@@ -153,9 +153,10 @@ window.StoryForm = React.createClass({
 
     var callback = this.props.story ? this.updateStory : this.createNewStory;
 
+    var sectionClass = "edit" + ( this.props.story ? "" : " new");
 
     return (
-      <section className="new edit">
+      <section className={sectionClass}>
         <form className="model-details">
           <fieldset className="story name">
             <textarea className="editor std" placeholder="Story title" valueLink={this.linkState("name")} />
