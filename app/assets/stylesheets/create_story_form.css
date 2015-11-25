@@ -561,7 +561,7 @@ input.std, .editor.std {
 }
 
 .dropdown.story-type .item-bug:before {
-  content: "🐞"
+  content: "🐞";
   height: 16px;
   width: 16px;
 }

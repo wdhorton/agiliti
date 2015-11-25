@@ -8,6 +8,7 @@ class OmniauthController < ApplicationController
       redirect_to root_url + "#/"
     else
       # render another form
+      redirect_to root_url
     end
   end
 end
