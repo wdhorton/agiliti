@@ -3,6 +3,18 @@ window.Header = React.createClass({
     return { showProjectsMenu: false, showProfileDropdown: false };
   },
 
+  componentDidMount: function () {
+    CurrentUserStore.addChangeListener(this.updateUsername);
+  },
+
+  componentWillUnmount: function () {
+    CurrentUserStore.removeChangeListener(this.updateUsername);
+  },
+
+  updateUsername: function () {
+    this.forceUpdate();
+  },
+
   showProjectsMenu: function () {
     this.setState({ showProjectsMenu: true });
   },
@@ -62,7 +74,7 @@ window.Header = React.createClass({
               <a
                 className="dropdown-name"
                 onClick={this.showProfileDropdown}>
-                williamhorton
+                { CurrentUserStore.currentUser().username }
               </a>
               {profileDropdown}
             </div>

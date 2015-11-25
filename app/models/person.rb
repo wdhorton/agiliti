@@ -18,8 +18,6 @@ class Person < ActiveRecord::Base
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
 
-    debugger
-
     person = Person.find_by(provider: provider, uid: uid)
     return person if person
 

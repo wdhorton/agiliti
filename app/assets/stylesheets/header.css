@@ -66,7 +66,7 @@
   float: left;
 }
 
-.dropdown-name {
+.dropdown a.dropdown-name {
   margin-left: 24px;
   padding-right: 13px;
   position: relative;
