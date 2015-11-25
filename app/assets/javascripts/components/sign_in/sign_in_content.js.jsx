@@ -8,7 +8,7 @@ window.SignInContent = React.createClass({
 
           <div className="sign-in-or-spacer">or</div>
 
-          <a href="#" className="google-oauth-link">
+          <a href="/auth/google_oauth2" className="google-oauth-link">
             <div className="google-plus-button">
               <div className="google-plus-icon"></div>
             </div>
