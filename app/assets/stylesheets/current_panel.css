@@ -205,8 +205,6 @@ a {
 
 .preview .expander:before {
   content: '';
-  /*width: 100%;
-  height: 13px;*/
   width: 0;
   height: 0;
   border-top: 4px solid transparent;
@@ -233,9 +231,6 @@ a {
   margin: 4px 0 0 6px;
   width: 10px;
   height: 10px;
-  /*background-image: ;
-  background-position: 0 -1063px;
-  background-repeat: repeat-y;*/
 }
 
 .preview .meta {

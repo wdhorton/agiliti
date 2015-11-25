@@ -72,7 +72,7 @@ window.StoryItem = React.createClass({
       <li data-storyid={this.props.story.id} onDoubleClick={this.props.editStory} className={ "story " + this.props.story.current_state + " " + this.props.story.story_type }>
         <header className="preview">
           <a className="expander" data-storyid={this.props.story.id} onClick={this.props.editStory}></a>
-          <a className="selector"></a>
+          <input type="checkbox" className="selector"></input>
           <span className="meta"></span>
           {itemButton}
           <span className="name">
