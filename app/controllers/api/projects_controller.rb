@@ -5,7 +5,13 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create!(project_params.merge({ start_time: Time.now }))
+    account = Account.where(id: project_params[:account_id])[0]
+
+    if !account
+      account = current_user.accounts.create(name: params[:project][:account_name])
+    end
+
+    project = Project.create!(project_params.merge({ start_time: Time.now, account_id: account.id }))
     render json: project
   end
 

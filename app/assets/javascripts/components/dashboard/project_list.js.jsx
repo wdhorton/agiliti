@@ -22,6 +22,32 @@ window.ProjectList = React.createClass({
   },
 
   render: function () {
+
+    var list;
+
+    if (this.state.projects.length > 0) {
+      list = (
+        <ul>
+          {
+            this.state.projects.map(function (project) {
+              return <ProjectBox key={project.id} project={project} />;
+            })
+          }
+        </ul>
+      );
+    } else {
+      list = (
+        <div className="no-resources-box">
+          <p>
+            You have no active projects.<br/>
+            Why not <a onClick={this.handleClick}>create one</a>?
+          </p>
+        </div>
+      );
+    }
+
+
+
     return (
       <div className="projects-list">
         <h2>
@@ -33,13 +59,7 @@ window.ProjectList = React.createClass({
           <span>Projects</span>
           <a href='#'>Show all</a>
         </h2>
-        <ul>
-          {
-            this.state.projects.map(function (project) {
-              return <ProjectBox key={project.id} project={project} />;
-            })
-          }
-        </ul>
+        { list }
       </div>
     );
   }

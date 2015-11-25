@@ -7,7 +7,8 @@ window.CreateProjectForm = React.createClass({
       account_id: "",
       account_name: "",
       public: false,
-      showAccountDropdown: false
+      showAccountDropdown: false,
+      creatingAccount: false
     };
   },
 
@@ -34,13 +35,17 @@ window.CreateProjectForm = React.createClass({
   },
 
   createAccount: function () {
-    debugger;
+    this.setState({ creatingAccount: true, showAccountDropdown: false });
+  },
+
+  cancelCreateAccount: function () {
+    this.setState({ creatingAccount: false });
   },
 
   render: function () {
 
     var accounts = [{name: "William's account", id: 1}];
-    var dropdown;
+    var dropdown, account_input;
 
     if (this.state.showAccountDropdown) {
       dropdown = (
@@ -48,6 +53,21 @@ window.CreateProjectForm = React.createClass({
           hideAccountDropdown={this.hideAccountDropdown}
           selectAccount={this.selectAccount}
           createAccount={this.createAccount} />
+      );
+    }
+
+    if (this.state.creatingAccount) {
+      account_input = (
+        <div>
+          <input placeholder="New account name" className="form-input" type="text" maxLength="100" valueLink={this.linkState("account_name")} />
+          <a className="link new-account-cancellation" onClick={this.cancelCreateAccount}>Or, choose another account ></a>
+        </div>
+      );
+    } else {
+      account_input = (
+        <div className="form-select" id="account-id" onClick={this.showAccountDropdown}>
+          {this.state.account_name}
+        </div>
       );
     }
 
@@ -61,9 +81,7 @@ window.CreateProjectForm = React.createClass({
 
           <div className="form-group">
             <label htmlFor="account-id">Account</label>
-            <div className="form-select" id="account-id" onClick={this.showAccountDropdown}>
-              {this.state.account_name}
-            </div>
+            {account_input}
             {dropdown}
           </div>
 

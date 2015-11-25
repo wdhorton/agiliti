@@ -47,3 +47,32 @@ div.projects-list {
 .dashboard-page h2 > a:hover {
   text-decoration: underline;
 }
+
+.dashboard-page .no-resources-box {
+  width: 440px;
+  height: 136px;
+  margin-bottom: 27px;
+  border: 1px dashed #CCC;
+  display: inline-block;
+}
+
+.dashboard-page .no-resources-box p {
+  display: table-cell;
+  height: inherit;
+  padding: 0 80px;
+  vertical-align: middle;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 0;
+  color: #333;
+  line-height: 1.5;
+  width: inherit;
+}
+
+.dashboard-page .no-resources-box p a {
+  color: #40769c;
+}
+
+.dashboard-page .no-resources-box p a:hover {
+  text-decoration: underline;
+}
