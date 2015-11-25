@@ -1,0 +1,3 @@
+ItemTypes = {
+  PANEL: "panel"
+};
