@@ -185,7 +185,7 @@ window.StoryForm = React.createClass({
                   <li className="type" key="type">
                     <em>Story Type</em>
                     <div className="dropdown story-type" >
-                      <a onClick={this.showTypeDropdown} className="selection item-feature"><span>{ this.state.story_type }</span></a>
+                      <a onClick={this.showTypeDropdown} className={ "selection item-" + this.state.story_type }><span>{ this.state.story_type }</span></a>
                       <a onClick={this.showTypeDropdown} className="arrow target"></a>
                       { typeDropdown }
                     </div>
