@@ -14,13 +14,13 @@ class Person < ActiveRecord::Base
     person && person.valid_password?(password) ? person : nil
   end
 
-  def self.find_by_auth_hash(auth_hash) {
+  def self.find_by_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
 
     person = Person.find_by(provider: provider, uid: uid)
     person ? person : nil
-  }
+  end
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64
