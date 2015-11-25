@@ -32,7 +32,7 @@ window.StoryItem = React.createClass({
     if (this.props.story.estimate !== -1 && this.props.story.current_state !== "accepted") {
       var word;
 
-      if (this.props.story.current_state === "unstarted") {
+      if (this.props.story.current_state === "unstarted" || this.props.story.current_state === "unscheduled") {
         word = "start";
       } else if (this.props.story.current_state === "started") {
         word= "finish";
