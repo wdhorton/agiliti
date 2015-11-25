@@ -14,12 +14,26 @@ class Person < ActiveRecord::Base
     person && person.valid_password?(password) ? person : nil
   end
 
-  def self.find_by_auth_hash(auth_hash)
+  def self.find_or_create_by_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
 
+    debugger
+
     person = Person.find_by(provider: provider, uid: uid)
-    person ? person : nil
+    return person if person
+
+    fname = auth_hash[:info][:first_name]
+    lname = auth_hash[:info][:last_name]
+
+    Person.create(
+      email: auth_hash[:info][:email],
+      name: auth_hash[:info][:name],
+      username: (fname + lname).downcase,
+      initials: (fname[0] + lname[0]).upcase,
+      provider: provider,
+      uid: uid,
+    )
   end
 
   def self.generate_session_token
