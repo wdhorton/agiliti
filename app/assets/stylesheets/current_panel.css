@@ -205,12 +205,16 @@ a {
 
 .preview .expander:before {
   content: '';
-  width: 100%;
-  height: 13px;
-  /*background-image: ;
-  background-position: 0 -530px;
-  background-repeat: repeat-y;*/
-  margin: 5px 0 0 1px;
+  /*width: 100%;
+  height: 13px;*/
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+
+  border-left: 4px solid #ADADAD;
+
+  margin: 9px 0 0 5px;
   float: left;
 }
 
@@ -246,14 +250,27 @@ a {
   line-height: 19px;
 }
 
-.meta:before {
+li.story.feature .meta:before {
   content: '★';
   color: #D4BC35;
-  float: left;
-  height: 15px;
+}
+
+li.story.chore .meta:before {
+  content: '⚙';
+  color: #858381;
+}
+
+li.story.release .meta:before {
+  content: '🏁';
+}
+
+li.story.bug .meta:before {
+  content: '🐞';
 }
 
 .meta:before {
+  float: left;
+  height: 15px;
   margin-left: -18px;
   width: 18px;
 }
