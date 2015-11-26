@@ -17,7 +17,12 @@
 //= require flux
 //= require eventemitter
 //= require react_router
-//= require react_dnd
-//= require react_dnd_html5_backend
-//= require components
-//= require_tree .
+//= require_tree ./actions
+//= require_tree ./components
+//= require_tree ./constants
+//= require_tree ./dispatcher
+//= require_tree ./stores
+//= require_tree ./util
+//= require ./app
+
+require ('./drag_and_drop/project_show_page');

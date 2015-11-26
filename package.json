@@ -1,0 +1,19 @@
+{
+  "name": "Capstone",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {
+    "babelify": "6.4.0",
+    "reactify": "^1.1.1",
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "react-router": "~0.13.2",
+    "react-dom": "^0.14.0",
+    "react": "^0.14.0",
+    "react-dnd-html5-backend": "^2.0.0",
+    "react-dnd": "2.0.2",
+    "jquery": "2.1.4"
+  }
+}

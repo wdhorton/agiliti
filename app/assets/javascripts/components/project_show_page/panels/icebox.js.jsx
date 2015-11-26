@@ -1,5 +1,5 @@
 (function (root) {
-  var Icebox = React.createClass({
+  root.Icebox = React.createClass({
     getInitialState: function () {
       return { showCreateStoryForm: false };
     },
@@ -46,7 +46,5 @@
       );
     }
   });
-
-  root.Icebox = DragSource(ItemTypes.PANEL);
 
 })(this);

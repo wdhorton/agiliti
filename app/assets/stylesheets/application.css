@@ -18,3 +18,15 @@
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
 }
+
+.draggable {
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+}
+
+.target {
+  height: 400px;
+  width: 400px;
+  background-color: gray;
+}

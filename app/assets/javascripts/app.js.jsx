@@ -3,8 +3,6 @@ $(function() {
   var Router = ReactRouter.Router;
   var Route = ReactRouter.Route;
   var IndexRoute = ReactRouter.IndexRoute;
-  var HTML5Backend = ReactDnDHTML5Backend;
-  var DragDropContext = ReactDnD.DragDropContext;
 
   var App = React.createClass({
 
@@ -25,7 +23,6 @@ $(function() {
       }
     },
 
-
     render: function () {
       return (
         <div>
@@ -35,10 +32,8 @@ $(function() {
     }
   });
 
-  var DragDropApp = DragDropContext(HTML5Backend)(App);
-
   var routes = (
-    <Route path="/" component={DragDropApp}>
+    <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />
       <Route path="/signin" component={SignInPage} />
       <Route path="/signup/new" component={SignUpPage} />

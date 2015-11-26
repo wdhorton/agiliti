@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '>= 1.8.4'
 
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -10,10 +11,12 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
-gem 'react-rails', '~> 1.3.0'
+gem 'react-rails', '>= 1.4.0'
 gem 'flux-rails-assets', '~> 2.1.0'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+
+gem 'browserify-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -28,4 +31,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-react-dnd'
 end
