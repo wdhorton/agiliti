@@ -1,46 +1,37 @@
-(function(root){
-  var _projects = [];
+import { register } from '../AppDispatcher';
+import { createStore } from '../utils/StoreUtils';
 
-  var resetProjects = function (projects) {
-    _projects = projects;
-  };
+var _projects = [];
 
-  var addProject = function (project) {
-    _projects.push(project);
-  };
+var resetProjects = function (projects) {
+  _projects = projects;
+};
 
-  var CHANGE_EVENT = "change";
+var addProject = function (project) {
+  _projects.push(project);
+};
 
-  root.ProjectStore = $.extend({}, EventEmitter.prototype, {
-    all: function () {
-      return _projects.slice();
-    },
+const ProjectStore = createStore({
+  all() {
+    return _projects.slice();
+  },
 
-    find: function (id) {
-      return _projects.filter(function (p) { return p.id === id; } )[0];
-    },
+  find(id) {
+    return _projects.filter(function (p) { return p.id === id; } )[0];
+  }
+});
 
-    addChangeListener: function (callback) {
-      this.on(CHANGE_EVENT, callback);
-    },
+ProjectStore.dispatcherToken = register(function (payload) {
+  switch (payload.actionType) {
+    case ProjectConstants.PROJECTS_RECEIVED:
+      resetProjects(payload.projects);
+      ProjectStore.emit(CHANGE_EVENT);
+      break;
+    case ProjectConstants.NEW_PROJECT_RECEIVED:
+      addProject(payload.project);
+      ProjectStore.emit(CHANGE_EVENT);
+      break;
+  }
+});
 
-    removeChangeListener: function (callback) {
-      this.removeListener(CHANGE_EVENT, callback);
-    },
-
-    dispatcherId: AppDispatcher.register(function (payload) {
-      switch (payload.actionType) {
-        case ProjectConstants.PROJECTS_RECEIVED:
-          resetProjects(payload.projects);
-          ProjectStore.emit(CHANGE_EVENT);
-          break;
-        case ProjectConstants.NEW_PROJECT_RECEIVED:
-          addProject(payload.project);
-          ProjectStore.emit(CHANGE_EVENT);
-          break;
-      }
-    })
-
-  });
-
-})(this);
+export default ProjectStore;

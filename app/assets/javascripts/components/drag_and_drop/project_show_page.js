@@ -1,6 +1,6 @@
 import PanelsContainer from './panels_container';
 
-window.ProjectShowPage = React.createClass({
+var ProjectShowPage = React.createClass({
   getInitialState: function () {
     return $.extend({}, this.getStateFromStore(), {
       showMyWork: false,
@@ -15,7 +15,7 @@ window.ProjectShowPage = React.createClass({
     });
   },
 
-  panels: [MyWork, Current, Backlog, Icebox, Done, Epics, Labels, Charts, ProjectHistory],
+  panels: [],
 
   getStateFromStore: function () {
     var id = parseInt(this.props.params.id);
@@ -54,6 +54,7 @@ window.ProjectShowPage = React.createClass({
   },
 
   render: function () {
+    const { stories, project } = this.state;
 
     return (
       <div>
@@ -61,7 +62,7 @@ window.ProjectShowPage = React.createClass({
         <section className="project main">
           <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">
-            <PanelsContainer projectId={this.state.project.id} />
+            <PanelsContainer stories={stories} projectId={project.id} />
           </article>
         </section>
       </div>

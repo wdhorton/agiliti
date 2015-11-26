@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+const { Component } = React;
 import update from 'react/lib/update';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -47,7 +47,8 @@ export default class Container extends Component {
                      name={panel.name}
                      index={i}
                      movePanel={this.movePanel}
-                     projectId={projectId}/>
+                     projectId={projectId}
+                     stories={stories} />
             );
         })}
       </section>

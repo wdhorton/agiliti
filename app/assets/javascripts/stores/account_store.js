@@ -1,42 +1,33 @@
-(function(root){
-  var _accounts = [];
+import { register } from '../AppDispatcher';
+import { createStore } from '../utils/StoreUtils';
 
-  var resetAccounts = function (accounts) {
-    _accounts = accounts;
-  };
+var _accounts = [];
 
-  var addAccount = function (account) {
-    _accounts.push(account);
-  };
+var resetAccounts = function (accounts) {
+  _accounts = accounts;
+};
 
-  var CHANGE_EVENT = "change";
+var addAccount = function (account) {
+  _accounts.push(account);
+};
 
-  root.AccountStore = $.extend({}, EventEmitter.prototype, {
-    all: function (){
-      return _accounts.slice();
-    },
+const AccountStore = createStore({
+  all(){
+    return _accounts.slice();
+  }
+});
 
-    addChangeListener: function (callback) {
-      this.on(CHANGE_EVENT, callback);
-    },
+AccountStore.dispatchToken = register(function (payload) {
+  switch (payload.actionType) {
+    case AccountConstants.ACCOUNTS_RECEIVED:
+      resetAccounts(payload.accounts);
+      AccountStore.emit(CHANGE_EVENT);
+      break;
+    case AccountConstants.NEW_ACCOUNT_RECEIVED:
+      addAccount(payload.account);
+      AccountStore.emit(CHANGE_EVENT);
+      break;
+  }
+});
 
-    removeChangeListener: function (callback) {
-      this.removeListener(CHANGE_EVENT, callback);
-    },
-
-    dispatcherId: AppDispatcher.register(function (payload) {
-      switch (payload.actionType) {
-        case AccountConstants.ACCOUNTS_RECEIVED:
-          resetAccounts(payload.accounts);
-          AccountStore.emit(CHANGE_EVENT);
-          break;
-        case AccountConstants.NEW_ACCOUNT_RECEIVED:
-          addAccount(payload.account);
-          AccountStore.emit(CHANGE_EVENT);
-          break;
-      }
-    })
-
-  });
-
-})(this);
+export default AccountStore;

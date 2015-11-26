@@ -1,4 +1,4 @@
-ApiUtil = {
+export default {
   fetchProjects: function () {
     $.ajax({
       url: "api/projects",

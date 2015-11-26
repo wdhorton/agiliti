@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+const { Component, PropTypes } = React;
 import { findDOMNode } from 'react-dom';
 import ItemTypes from './dnd_constants';
 import { DragSource, DropTarget } from 'react-dnd';
@@ -80,6 +80,12 @@ export default class Panel extends Component {
     const { text, isDragging, connectDragSource, connectDropTarget, name, projectId, stories } = this.props;
     const opacity = isDragging ? 0 : 1;
 
+    var list;
+
+    if (stories) {
+      list = <StoryList projectId={projectId} stories={stories} />
+    }
+
     return connectDragSource(connectDropTarget(
       <div className={"panel " + name}>
         <div className="panel-container">
@@ -87,7 +93,7 @@ export default class Panel extends Component {
           <section className="item-container">
             <section className="items-container">
               <div className="panel-content">
-                <StoryList projectId={projectId} stories={stories} />
+                {list}
               </div>
             </section>
           </section>

@@ -1,36 +1,25 @@
-(function(root){
-  var _currentUser = [];
+import { register } from '../AppDispatcher';
+import { createStore } from '../utils/StoreUtils';
 
-  var CHANGE_EVENT = "change";
+var _currentUser = [];
 
-  root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
-    currentUser: function () {
-      return $.extend({}, _currentUser);
-    },
+const CurrentUserStore = createStore({
+  currentUser() {
+    return $.extend({}, _currentUser);
+  },
 
-    isSignedIn: function () {
-      return (typeof _currentUser.id !== "undefined");
-    },
+  isSignedIn() {
+    return (typeof _currentUser.id !== "undefined");
+  }
+});
 
-    addChangeListener: function (callback) {
-      this.on(CHANGE_EVENT, callback);
-    },
+CurrentUserStore.dispatcherToken = register(function (payload) {
+  switch (payload.actionType) {
+    case CurrentUserConstants.CURRENT_USER_RECEIVED:
+      _currentUser = payload.currentUser;
+      CurrentUserStore.emit(CHANGE_EVENT);
+      break;
+  }
+});
 
-    removeChangeListener: function (callback) {
-      this.removeListener(CHANGE_EVENT, callback);
-    },
-
-    dispatcherId: AppDispatcher.register(function (payload) {
-      switch (payload.actionType) {
-
-        case CurrentUserConstants.CURRENT_USER_RECEIVED:
-          _currentUser = payload.currentUser;
-          CurrentUserStore.emit(CHANGE_EVENT);
-          break;
-
-      }
-    })
-
-  });
-
-})(this);
+export default CurrentUserStore;

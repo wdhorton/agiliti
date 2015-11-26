@@ -1,4 +1,4 @@
-PeopleApiUtil = {
+export default {
   signup: function (person, success) {
     $.ajax({
       url: "api/people",

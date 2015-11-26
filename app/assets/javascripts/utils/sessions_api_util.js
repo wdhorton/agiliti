@@ -1,5 +1,4 @@
-SessionsApiUtil = {
-
+export default {
   signin: function (credentials, success) {
     $.ajax({
       url: "/api/session",
