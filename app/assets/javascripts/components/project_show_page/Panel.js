@@ -83,7 +83,6 @@ export default class Panel extends Component {
 
   constructor(props) {
     super(props);
-    console.log(StoryStore.all());
     this.updateStories = this.updateStories.bind(this);
     this.state = { stories: StoryStore[props.name]() };
   }
