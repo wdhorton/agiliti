@@ -6,7 +6,7 @@ import StoryItem from './StoryItem';
 
 export default React.createClass({
   getInitialState: function () {
-    return { editingId: -1 };
+    return { editingId: -1, creatingStory: true };
   },
 
   editStory: function (e) {
@@ -15,12 +15,20 @@ export default React.createClass({
 
   hideStoryForm: function (e) {
     e.preventDefault();
-    this.setState({ editingId: -1 });
+    this.setState({ editingId: -1, creatingStory: false });
   },
 
   render: function () {
+    var createStory;
+
+    if (this.props.showCreateStory && this.state.creatingStory) {
+      createStory = <StoryForm projectId={this.props.projectId} hideStoryForm={this.hideStoryForm} />;
+    }
+
+
     return (
       <ul>
+        { createStory }
         {
           this.props.stories.map(function (story) {
             if (story.id === this.state.editingId) {

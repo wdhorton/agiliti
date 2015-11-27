@@ -35,7 +35,7 @@ export default React.createClass({
   },
 
   createStory: function () {
-    this.setState({ showIcebox: true });
+    this.setState({ showCreateStory: true });
   },
 
   togglePanel: function (e) {
@@ -53,7 +53,7 @@ export default React.createClass({
   },
 
   render: function () {
-    const { stories, project } = this.state;
+    const { stories, project, showCreateStory } = this.state;
 
     return (
       <div>
@@ -61,7 +61,7 @@ export default React.createClass({
         <section className="project main">
           <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">
-            <PanelsContainer />
+            <PanelsContainer showCreateStory={showCreateStory} projectId={this.props.params.id} />
           </article>
         </section>
       </div>

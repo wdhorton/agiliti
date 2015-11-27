@@ -23,7 +23,8 @@ export default React.createClass({
 
   createNewStory: function (e) {
     e.preventDefault();
-    newStory = $.extend({}, this.state, { project_id: this.props.projectId });
+    this.props.hideStoryForm(e);
+    const newStory = $.extend({}, this.state, { project_id: this.props.projectId });
     ApiUtil.createNewStory(newStory);
   },
 

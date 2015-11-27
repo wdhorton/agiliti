@@ -107,8 +107,10 @@ export default class Panel extends Component {
 
     var list;
 
+    var showCreateStory = name === "icebox" && this.props.showCreateStory
+
     if (stories) {
-      list = <StoryList projectId={projectId} stories={stories} />
+      list = <StoryList projectId={projectId} stories={stories} showCreateStory={showCreateStory} />
     }
 
     return connectDragSource(connectDropTarget(

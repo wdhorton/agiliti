@@ -48,7 +48,8 @@ export default class Container extends Component {
                      index={i}
                      movePanel={this.movePanel}
                      projectId={projectId}
-                     stories={stories} />
+                     stories={stories}
+                     showCreateStory={this.props.showCreateStory}/>
             );
         })}
       </section>
