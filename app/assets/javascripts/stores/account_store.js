@@ -1,5 +1,6 @@
 import { register } from '../AppDispatcher';
 import { createStore } from '../utils/StoreUtils';
+import AccountConstants from '../constants/account_constants';
 
 var _accounts = [];
 
@@ -18,14 +19,14 @@ const AccountStore = createStore({
 });
 
 AccountStore.dispatchToken = register(function (payload) {
-  switch (payload.actionType) {
+  switch (payload.type.actionType) {
     case AccountConstants.ACCOUNTS_RECEIVED:
-      resetAccounts(payload.accounts);
-      AccountStore.emit(CHANGE_EVENT);
+      resetAccounts(payload.type.accounts);
+      AccountStore.emitChange();
       break;
     case AccountConstants.NEW_ACCOUNT_RECEIVED:
-      addAccount(payload.account);
-      AccountStore.emit(CHANGE_EVENT);
+      addAccount(payload.type.account);
+      AccountStore.emitChange();
       break;
   }
 });

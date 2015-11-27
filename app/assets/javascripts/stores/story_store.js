@@ -1,5 +1,6 @@
 import { register } from '../AppDispatcher';
 import { createStore } from '../utils/StoreUtils';
+import StoryConstants from '../constants/story_constants';
 
 var _stories = [];
 
@@ -27,18 +28,18 @@ const StoryStore = createStore({
 });
 
 StoryStore.dispatcherToken = register(function (payload) {
-  switch (payload.actionType) {
+  switch (payload.type.actionType) {
     case StoryConstants.STORIES_RECEIVED:
-      resetStories(payload.stories);
-      StoryStore.emit(CHANGE_EVENT);
+      resetStories(payload.type.stories);
+      StoryStore.emitChange();
       break;
     case StoryConstants.NEW_STORY_RECEIVED:
-      addStory(payload.story);
-      StoryStore.emit(CHANGE_EVENT);
+      addStory(payload.type.story);
+      StoryStore.emitChange();
       break;
     case StoryConstants.UPDATED_STORY_RECEIVED:
-      updateStory(payload.story);
-      StoryStore.emit(CHANGE_EVENT);
+      updateStory(payload.type.story);
+      StoryStore.emitChange();
       break;
   }
 });

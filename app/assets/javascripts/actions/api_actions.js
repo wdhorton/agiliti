@@ -1,41 +1,46 @@
-ApiActions = {
+import { dispatch } from '../AppDispatcher';
+import ProjectConstants from '../constants/project_constants';
+import StoryConstants from '../constants/story_constants';
+import AccountConstants from '../constants/account_constants';
+
+export default {
   receiveAllProjects: function(projects) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: ProjectConstants.PROJECTS_RECEIVED,
       projects: projects
     });
   },
 
   receiveNewProject: function(project) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: ProjectConstants.NEW_PROJECT_RECEIVED,
       project: project
     });
   },
 
   receiveAllStories: function(stories) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: StoryConstants.STORIES_RECEIVED,
       stories: stories
     });
   },
 
   receiveNewStory: function(story) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: StoryConstants.NEW_STORY_RECEIVED,
       story: story
     });
   },
 
   receiveUpdatedStory: function(story) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: StoryConstants.UPDATED_STORY_RECEIVED,
       story: story
     });
   },
 
   receiveAllAccounts: function(accounts) {
-    AppDispatcher.dispatch({
+    dispatch({
       actionType: AccountConstants.ACCOUNTS_RECEIVED,
       accounts: accounts
     });

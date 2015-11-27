@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default {
   signup: function (person, success) {
     $.ajax({

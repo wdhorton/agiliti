@@ -1,31 +1,31 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
+import CurrentUserStore from './stores/current_user_store';
+import SessionsApiUtil from './utils/sessions_api_util';
+import { History } from 'react-router';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.object
-  }
+export default React.createClass({
+  mixins: [History],
 
-  constructor(props) {
-    super(props);
-    this.state = { currentUser: null };
-  }
+  getInitialState: function () {
+    return { currentUser: null };
+  },
 
-  componentWillMount() {
+  componentWillMount: function() {
     CurrentUserStore.addChangeListener(this._ensureSignedIn);
     SessionsApiUtil.fetchCurrentUser();
-  }
+  },
 
-  _ensureSignedIn() {
+  _ensureSignedIn: function() {
     if (!CurrentUserStore.isSignedIn()) {
-      this.context.history.pushState(null, "/signin");
+      this.history.pushState(null, "/signin");
     }
-  }
+  },
 
-  render() {
+  render: function() {
     return (
       <div>
         {this.props.children}
       </div>
     );
   }
-}
+});

@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import { receiveCurrentUser } from '../actions/current_user_actions';
+
 export default {
   signin: function (credentials, success) {
     $.ajax({
@@ -6,7 +9,7 @@ export default {
       dataType: 'json',
       data: credentials,
       success: function (currentUser) {
-        CurrentUserActions.receiveCurrentUser(currentUser);
+        receiveCurrentUser(currentUser);
         if (success) success();
       }
     });
@@ -18,7 +21,7 @@ export default {
       method: "DELETE",
       dataType: 'json',
       success: function () {
-        CurrentUserActions.receiveCurrentUser({});
+        receiveCurrentUser({});
       }
     });
   },
@@ -29,7 +32,7 @@ export default {
       method: "GET",
       dataType: 'json',
       success: function (currentUser) {
-        CurrentUserActions.receiveCurrentUser(currentUser);
+        receiveCurrentUser(currentUser);
       }
     });
   }

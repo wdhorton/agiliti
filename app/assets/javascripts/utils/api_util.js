@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import ApiActions from '../actions/api_actions';
+
 export default {
   fetchProjects: function () {
     $.ajax({

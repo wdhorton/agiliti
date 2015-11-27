@@ -1,15 +1,9 @@
 import { register } from '../AppDispatcher';
 import { createStore } from '../utils/StoreUtils';
+import ProjectConstants from '../constants/project_constants';
+import selectn from 'selectn';
 
 var _projects = [];
-
-var resetProjects = function (projects) {
-  _projects = projects;
-};
-
-var addProject = function (project) {
-  _projects.push(project);
-};
 
 const ProjectStore = createStore({
   all() {
@@ -21,15 +15,15 @@ const ProjectStore = createStore({
   }
 });
 
-ProjectStore.dispatcherToken = register(function (payload) {
-  switch (payload.actionType) {
+ProjectStore.dispatcherToken = register(payload => {
+  switch (payload.type.actionType) {
     case ProjectConstants.PROJECTS_RECEIVED:
-      resetProjects(payload.projects);
-      ProjectStore.emit(CHANGE_EVENT);
+      _projects = payload.type.projects;
+      ProjectStore.emitChange();
       break;
     case ProjectConstants.NEW_PROJECT_RECEIVED:
-      addProject(payload.project);
-      ProjectStore.emit(CHANGE_EVENT);
+      _projects.push(payload.type.project);
+      ProjectStore.emitChange();
       break;
   }
 });
