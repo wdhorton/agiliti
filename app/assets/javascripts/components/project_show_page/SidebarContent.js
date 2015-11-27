@@ -1,4 +1,6 @@
-window.SidebarContent = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   render: function () {
     return (
       <section className="sidebar-content">
@@ -33,47 +35,47 @@ window.SidebarContent = React.createClass({
 
         <form className="panels">
           <ul>
-            <li data-panel="showMyWork" onClick={this.props.togglePanel} className={ "my-work" + (this.props.activePanels.indexOf(MyWork) === -1 ? "" : " active" ) }>
+            <li data-panel="showMyWork" onClick={this.props.togglePanel} className={ "my-work" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">my work</span>
               </label>
             </li>
-            <li data-panel="showCurrent" onClick={this.props.togglePanel} className={ "current" + (this.props.activePanels.indexOf(Current) === -1 ? "" : " active" ) }>
+            <li data-panel="showCurrent" onClick={this.props.togglePanel} className={ "current" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">current</span>
               </label>
             </li>
-            <li data-panel="showBacklog" onClick={this.props.togglePanel} className={ "backlog" + (this.props.activePanels.indexOf(Backlog) === -1 ? "" : " active" ) }>
+            <li data-panel="showBacklog" onClick={this.props.togglePanel} className={ "backlog" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">backlog</span>
               </label>
             </li>
-            <li data-panel="showIcebox" onClick={this.props.togglePanel} className={ "icebox" + (this.props.activePanels.indexOf(Icebox) === -1 ? "" : " active" ) }>
+            <li data-panel="showIcebox" onClick={this.props.togglePanel} className={ "icebox" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">icebox</span>
               </label>
             </li>
-            <li data-panel="showDone" onClick={this.props.togglePanel} className={ "done" + (this.props.activePanels.indexOf(Done) === -1 ? "" : " active" ) }>
+            <li data-panel="showDone" onClick={this.props.togglePanel} className={ "done" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">done</span>
               </label>
             </li>
-            <li data-panel="showEpics" onClick={this.props.togglePanel} className={ "epics" + (this.props.activePanels.indexOf(Epics) === -1 ? "" : " active" ) }>
+            <li data-panel="showEpics" onClick={this.props.togglePanel} className={ "epics" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">epics</span>
               </label>
             </li>
-            <li data-panel="showLabels" onClick={this.props.togglePanel} className={ "labels" + (this.props.activePanels.indexOf(Labels) === -1 ? "" : " active" ) }>
+            <li data-panel="showLabels" onClick={this.props.togglePanel} className={ "labels" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">labels</span>
               </label>
             </li>
-            <li data-panel="showCharts" onClick={this.props.togglePanel} className={ "charts" + (this.props.activePanels.indexOf(Charts) === -1 ? "" : " active" ) }>
+            <li data-panel="showCharts" onClick={this.props.togglePanel} className={ "charts" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">charts</span>
               </label>
             </li>
-            <li data-panel="showProjectHistory" onClick={this.props.togglePanel} className={ "project-history" + (this.props.activePanels.indexOf(ProjectHistory) === -1 ? "" : " active" ) }>
+            <li data-panel="showProjectHistory" onClick={this.props.togglePanel} className={ "project-history" + (this.props.activePanels.indexOf("") === -1 ? "" : " active" ) }>
               <label>
                 <span className="panel-name">project history</span>
               </label>

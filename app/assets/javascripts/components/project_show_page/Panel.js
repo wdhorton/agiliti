@@ -1,6 +1,6 @@
-const { Component, PropTypes } = React;
+import { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
-import ItemTypes from './dnd_constants';
+import ItemTypes from '../../constants/dnd_constants';
 import { DragSource, DropTarget } from 'react-dnd';
 
 const panelSource = {

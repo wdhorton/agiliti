@@ -1,4 +1,9 @@
-window.Sidebar = React.createClass({
+import React from 'react';
+import SidebarHeader from './SidebarHeader';
+import SidebarContent from './SidebarContent';
+import SidebarFooter from './SidebarFooter';
+
+export default React.createClass({
   render: function () {
     return (
       <div className="sidebar-wrapper">

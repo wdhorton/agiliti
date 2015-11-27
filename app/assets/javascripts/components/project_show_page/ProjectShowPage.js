@@ -1,6 +1,14 @@
-import PanelsContainer from './panels_container';
+import React from 'react';
+import $ from 'jquery';
 
-var ProjectShowPage = React.createClass({
+import PanelsContainer from './PanelsContainer';
+import ProjectShowHeader from './ProjectShowHeader';
+import Sidebar from './Sidebar';
+import ProjectStore from '../../stores/project_store';
+import StoryStore from '../../stores/story_store';
+import ApiUtil from '../../utils/api_util';
+
+export default React.createClass({
   getInitialState: function () {
     return $.extend({}, this.getStateFromStore(), {
       showMyWork: false,
@@ -62,12 +70,9 @@ var ProjectShowPage = React.createClass({
         <section className="project main">
           <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">
-            <PanelsContainer stories={stories} projectId={project.id} />
           </article>
         </section>
       </div>
     );
   }
 });
-
-export default ProjectShowPage;

@@ -1,8 +1,8 @@
-const { Component } = React;
+import { Component } from 'react';
 import update from 'react/lib/update';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import Panel from './panel'
+import Panel from './Panel'
 
 @DragDropContext(HTML5Backend)
 export default class Container extends Component {

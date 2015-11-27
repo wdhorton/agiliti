@@ -1,5 +1,9 @@
-window.ProjectShowHeader = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+import React from 'react';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import ProjectsMenu from '../dashboard/ProjectsMenu';
+
+export default React.createClass({
+  mixins: [LinkedStateMixin],
 
   getInitialState: function () {
     return { showProjectsMenu: false, searchText: "" };

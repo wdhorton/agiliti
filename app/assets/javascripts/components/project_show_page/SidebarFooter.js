@@ -1,4 +1,6 @@
-window.SidebarFooter = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   render: function () {
     return (
       <footer className="sidebar-footer">

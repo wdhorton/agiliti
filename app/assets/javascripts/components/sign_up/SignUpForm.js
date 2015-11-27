@@ -1,7 +1,7 @@
 import React from 'react';
 import { History } from 'react-router';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
-
+import PeopleApiUtil from '../../utils/people_api_util';
 
 export default React.createClass({
   getInitialState: function () {

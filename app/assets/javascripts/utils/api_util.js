@@ -44,7 +44,7 @@ export default {
 
   fetchStories: function (project_id) {
     $.ajax({
-      url: "api/projects/" + project_id + "/stories",
+      url: "/api/projects/" + project_id + "/stories",
       method: "GET",
       dataType: 'json',
       success: function (stories) {
@@ -55,7 +55,7 @@ export default {
 
   createNewStory: function (story) {
     $.ajax({
-      url: "api/stories",
+      url: "/api/stories",
       method: "POST",
       data: { story : story },
       dataType: 'json',
@@ -67,7 +67,7 @@ export default {
 
   updateStory: function (story) {
     $.ajax({
-      url: "api/stories/" + story.id,
+      url: "/api/stories/" + story.id,
       method: "PATCH",
       data: { story : story },
       dataType: 'json',

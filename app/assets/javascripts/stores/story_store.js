@@ -43,3 +43,5 @@ StoryStore.dispatcherToken = register(function (payload) {
       break;
   }
 });
+
+export default StoryStore;
