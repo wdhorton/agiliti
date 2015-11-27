@@ -1,4 +1,7 @@
-window.StoryItem = React.createClass({
+import React from 'react';
+import ApiUtil from '../../utils/api_util';
+
+export default React.createClass({
   updateEstimate: function (e) {
     e.preventDefault();
     ApiUtil.updateStory({ id: this.props.story.id, estimate: e.target.innerHTML });

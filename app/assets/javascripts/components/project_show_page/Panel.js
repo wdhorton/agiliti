@@ -1,7 +1,12 @@
-import { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import ItemTypes from '../../constants/dnd_constants';
 import { DragSource, DropTarget } from 'react-dnd';
+
+import PanelHeader from './PanelHeader';
+import StoryStore from '../../stores/story_store';
+import ApiUtil from '../../utils/api_util';
+import StoryList from './StoryList';
 
 const panelSource = {
   beginDrag(props) {
@@ -25,26 +30,26 @@ const panelTarget = {
     // Determine rectangle on screen
     const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
 
-    // Get vertical middle
-    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+    // Get horizontal middle
+    const hoverMiddleX = (hoverBoundingRect.left - hoverBoundingRect.right) / 2;
 
     // Determine mouse position
     const clientOffset = monitor.getClientOffset();
 
-    // Get pixels to the top
-    const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+    // Get pixels to the right
+    const hoverClientX = clientOffset.x - hoverBoundingRect.right;
 
-    // Only perform the move when the mouse has crossed half of the items height
+    // Only perform the move when the mouse has crossed half of the items width
     // When dragging downwards, only move when the cursor is below 50%
     // When dragging upwards, only move when the cursor is above 50%
 
-    // Dragging downwards
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+    // Dragging left
+    if (dragIndex < hoverIndex && hoverClientX < hoverMiddleX) {
       return;
     }
 
-    // Dragging upwards
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+    // Dragging right
+    if (dragIndex > hoverIndex && hoverClientX > hoverMiddleX) {
       return;
     }
 
@@ -76,8 +81,28 @@ export default class Panel extends Component {
     movePanel: PropTypes.func.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    console.log(StoryStore.all());
+    this.updateStories = this.updateStories.bind(this);
+    this.state = { stories: StoryStore[props.name]() };
+  }
+
+  componentDidMount() {
+    StoryStore.addChangeListener(this.updateStories);
+  }
+
+  componentWillUnmount() {
+    StoryStore.removeChangeListener(this.updateStories);
+  }
+
+  updateStories() {
+    this.setState({ stories: StoryStore[this.props.name]() })
+  }
+
   render() {
-    const { text, isDragging, connectDragSource, connectDropTarget, name, projectId, stories } = this.props;
+    const { text, isDragging, connectDragSource, connectDropTarget, name, projectId } = this.props;
+    const { stories } = this.state;
     const opacity = isDragging ? 0 : 1;
 
     var list;

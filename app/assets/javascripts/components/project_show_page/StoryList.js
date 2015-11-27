@@ -1,4 +1,10 @@
-window.StoryList = React.createClass({
+import React from 'react';
+
+import StoryForm from './StoryForm';
+import StoryItem from './StoryItem';
+
+
+export default React.createClass({
   getInitialState: function () {
     return { editingId: -1 };
   },

@@ -1,5 +1,10 @@
-window.StoryForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+import React from 'react';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import $ from 'jquery';
+import ApiUtil from '../../utils/api_util';
+
+export default React.createClass({
+  mixins: [LinkedStateMixin],
 
   getInitialState: function () {
     var defaults = {
@@ -25,7 +30,7 @@ window.StoryForm = React.createClass({
   updateStory: function (e) {
     e.preventDefault();
     this.props.hideStoryForm(e);
-    story = $.extend({}, this.state, { project_id: this.props.projectId });
+    const story = $.extend({}, this.state, { project_id: this.props.projectId });
     ApiUtil.updateStory(story);
   },
 
@@ -46,12 +51,12 @@ window.StoryForm = React.createClass({
   },
 
   selectType: function (e) {
-    data = e.currentTarget.dataset;
+    const data = e.currentTarget.dataset;
     this.setState({ showTypeDropdown: false, story_type: data.value });
   },
 
   selectEstimate: function (e) {
-    data = e.currentTarget.dataset;
+    const data = e.currentTarget.dataset;
     this.setState({ showEstimateDropdown: false, estimate: parseInt(data.value) });
   },
 

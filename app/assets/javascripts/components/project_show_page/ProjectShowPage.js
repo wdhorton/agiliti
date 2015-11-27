@@ -31,16 +31,7 @@ export default React.createClass({
   },
 
   componentDidMount: function () {
-    StoryStore.addChangeListener(this.updateStories);
     ApiUtil.fetchStories(parseInt(this.props.params.id));
-  },
-
-  componentWillUnmount: function () {
-    StoryStore.removeChangeListener(this.updateStories);
-  },
-
-  updateStories: function () {
-    this.setState({ stories: StoryStore.all() });
   },
 
   createStory: function () {
@@ -70,6 +61,7 @@ export default React.createClass({
         <section className="project main">
           <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">
+            <PanelsContainer />
           </article>
         </section>
       </div>
