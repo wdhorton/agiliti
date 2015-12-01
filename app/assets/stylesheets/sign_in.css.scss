@@ -1,5 +1,4 @@
 .sign-in-page {
-  margin-bottom: 82px;
   background-color: #e4e4e4;
   line-height: 1;
 }
@@ -21,7 +20,9 @@
   height: 50px;
   width: 275px;
   margin-top: 10px;
-  /*background: no-repeat;*/
+  background: image-url("logo.png") no-repeat;
+  background-size: cover;
+  background-position: 0;
 }
 
 .toggle-sign-in-sign-up {
@@ -80,6 +81,11 @@
   text-align: left;
 }
 
+.google-oauth-link:hover {
+  background: #ffffff;
+  color: #5283b0;
+}
+
 .google-plus-button {
   display: inline-block;
   border-right: 1px solid #979797;
@@ -87,12 +93,12 @@
   float: left;
   height: 31px;
   width: 27px;
+  background: image-url("google_button_gray.png") no-repeat;
+  background-size: 100% 100%;
 }
 
-.google-plus-icon {
-  height: 28px;
-  width: 28px;
-  /*background: url() no-repeat;*/
+.google-oauth-link:hover .google-plus-button {
+  background: image-url("google_button_white.png") no-repeat;
 }
 
 .google-oauth-message {
@@ -207,7 +213,6 @@ a.forgot-password {
 
 .sign-in-footer {
   height: 82px;
-  position: absolute;
   bottom: 0px;
   width: 100%;
   line-height: 80px;
@@ -224,6 +229,14 @@ a.forgot-password {
   display: inline-block;
   margin: 0 10px;
   transition: opacity 150ms ease-in-out;
+  background-color: #A1A1A1;
+  border-radius: 50%
+}
+
+.sticky_footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 .sign-in-footer a.facebook {

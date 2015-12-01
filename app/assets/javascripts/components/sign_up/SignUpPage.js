@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUpHeader from './SignUpHeader';
 import SignUpContent from './SignUpContent';
-import SignUpFooter from './SignUpFooter';
+import SignInFooter from '../sign_in/SignInFooter';
 
 export default React.createClass({
   render: function () {
@@ -9,7 +9,7 @@ export default React.createClass({
       <div className="sign-in-page">
         <SignUpHeader />
         <SignUpContent />
-        <SignUpFooter />
+        <SignInFooter />
       </div>
     );
   }

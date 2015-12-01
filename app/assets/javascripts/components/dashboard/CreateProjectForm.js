@@ -1,8 +1,12 @@
 import React from 'react';
 import ApiUtil from '../../utils/api_util';
 import AccountSelectDropdown from './AccountSelectDropdown';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
 
 export default React.createClass({
+
+  mixins: [ LinkedStateMixin ],
+
   getInitialState: function () {
     return {
       name: "",
@@ -44,18 +48,6 @@ export default React.createClass({
     this.setState({ creatingAccount: false });
   },
 
-  handleFormInput: function (attr) {
-    return function (e) {
-      var newObj = {};
-      newObj[attr] = e.currentTarget.value;
-      this.setState(newObj);
-    }.bind(this);
-  },
-
-  toggleCheckbox: function () {
-    this.setState({ public: !this.state.public });
-  },
-
   render: function () {
 
     var accounts = [{name: "William's account", id: 1}];
@@ -73,7 +65,7 @@ export default React.createClass({
     if (this.state.creatingAccount) {
       account_input = (
         <div>
-          <input placeholder="New account name" className="form-input" type="text" maxLength="100" onChange={this.handleFormInput("account_name")} value={this.state.account_name} />
+          <input placeholder="New account name" className="form-input" type="text" maxLength="100" valueLink={this.linkState("account_name")} />
           <a className="link new-account-cancellation" onClick={this.cancelCreateAccount}>Or, choose another account ></a>
         </div>
       );
@@ -90,7 +82,7 @@ export default React.createClass({
         <section>
           <div className="form-group">
             <label htmlFor="project-name">Project Name</label>
-            <input className="form-input" id="project-name" type="text" onChange={this.handleFormInput("name")} value={this.state.name} />
+            <input className="form-input" id="project-name" type="text" valueLink={this.linkState("name")} />
           </div>
 
           <div className="form-group">
@@ -101,7 +93,7 @@ export default React.createClass({
 
           <div className="form-group">
             <label className="form-checkbox">
-              <input type="checkbox" onChange={this.toggleCheckbox} />
+              <input type="checkbox" checkedLink={this.linkState("public")} />
               <span>Make this project publicly visible. </span>
               <a href="#">Read more...</a>
             </label>
