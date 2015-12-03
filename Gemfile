@@ -12,6 +12,8 @@ gem 'flux-rails-assets', '~> 2.1.0'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
 
+gem 'browserify-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'better_errors'

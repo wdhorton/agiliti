@@ -1,1 +1,1 @@
-//= require ./bundle
+require('./index');
