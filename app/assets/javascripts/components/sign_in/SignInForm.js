@@ -18,6 +18,14 @@ export default React.createClass({
     }.bind(this));
   },
 
+  setDemoUser: function (e) {
+    if (e.target.checked) {
+      this.setState({ username_or_email: "demo_user@example.com", password: "password"});
+    } else {
+      this.setState({ username_or_email: "", password: "" });
+    }
+  },
+
   render: function () {
     return (
       <form onSubmit={ this.submit }>
@@ -46,9 +54,9 @@ export default React.createClass({
         </div>
 
         <div className="form-footer">
-          <input id="remember-checkbox" tabIndex="3" type="checkbox" checkedLink={this.linkState("remember")} />
+          <input id="remember-checkbox" tabIndex="3" type="checkbox" onChange={this.setDemoUser} />
           <label htmlFor="remember-checkbox" className="remember-me-label">
-            Remember Me
+            Sign in as demo user
           </label>
           <a href="#" tabIndex="5" className="forgot-password">Forgot password?</a>
         </div>
