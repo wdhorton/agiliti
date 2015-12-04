@@ -12,7 +12,7 @@ export default class ProfilePage extends Component {
 
           <UserManagementHeader />
           <div className="content group">
-            <div className="dashboard-page">
+            <div className="profile-page settings">
               <div className="column">
               </div>
               <div className="column">
