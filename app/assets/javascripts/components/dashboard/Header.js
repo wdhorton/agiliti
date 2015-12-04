@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import CurrentUserStore from '../../stores/current_user_store';
 import ProjectsMenu from './ProjectsMenu';
 import ProfileDropdown from './ProfileDropdown';
@@ -63,7 +64,7 @@ export default React.createClass({
       <header className="header group">
         <ul>
           <li className="header-logo-link">
-            <a href='#/' />
+            <Link to="/" />
           </li>
           <li>
             <a className="dropdown-menu" onClick={this.showProjectsMenu}>

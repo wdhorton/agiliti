@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import ProjectsMenu from '../dashboard/ProjectsMenu';
 
@@ -32,7 +33,7 @@ export default React.createClass({
       <header className="header group">
         <ul>
           <li className="header-logo-link">
-            <a href='#/' />
+            <Link to="/" />
           </li>
           <li>
             <a className="dropdown-menu" onClick={this.showProjectsMenu}>
