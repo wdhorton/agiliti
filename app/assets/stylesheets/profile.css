@@ -1,3 +1,7 @@
+.profile {
+  font-family: Arial, Verdana, sans-serif;
+}
+
 .user-management-header {
   height: 70px;
   background: #32353C;
@@ -52,6 +56,7 @@
   overflow: hidden;
   height: 37px;
   line-height: 37px;
+  padding: 0;
 }
 
 .card .header h3,
@@ -71,9 +76,11 @@
 
 .card .header .actions {
   float: right;
+  border: 0;
+  background-color: transparent;
 }
 
-.profiles_page a.header_button {
+.profiles-page a.header-button {
   display: inline-block;
 }
 
@@ -86,7 +93,7 @@
   width: 29px;
 }
 
-.header_button {
+.header-button {
   color: #fff;
   font-size: 11px;
   text-transform: uppercase;
@@ -118,5 +125,28 @@
 .profile-main > .content {
   margin-left: 20px;
   width: auto;
-  margin: 0 auto;
+  margin-top: 13px;
+}
+
+ul.rows > li h4 {
+  float: left;
+  text-indent: 18px;
+}
+
+.card ul.rows > li > h4 {
+  width: 29.1%;
+}
+
+.profile h4 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h3, h4 {
+  margin-top: 0;
+}
+
+.header-button:hover {
+  background-color: #2b70ab;
+  text-decoration: none;
 }
