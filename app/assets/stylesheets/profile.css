@@ -32,3 +32,91 @@
   color: #85bfe6;
   text-decoration: underline;
 }
+
+.profile-page.settings {
+  margin-bottom: 45px;
+}
+
+.card {
+  width: 750px;
+  margin-bottom: 20px;
+}
+
+.card .header {
+  background-color: #32353C;
+  border: 1px solid #32353C;
+  font-size: 10px;
+  color: #A0A4A0;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 37px;
+  line-height: 37px;
+}
+
+.card .header h3,
+.card ul.rows > li h4 {
+  float: left;
+  text-indent: 18px;
+}
+
+.card .header > h3 {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 1px;
+  text-align: left;
+  margin-right: 6px;
+}
+
+.card .header .actions {
+  float: right;
+}
+
+.profiles_page a.header_button {
+  display: inline-block;
+}
+
+.edit-button {
+  margin-top: 6px;
+}
+
+.save-button,
+.edit-button {
+  width: 29px;
+}
+
+.header_button {
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 7px 15px 6px;
+  line-height: 13px;
+  margin: 5px 5px 5px 1px;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: #78797d;
+  margin: 5px 5px 5px 3px;
+}
+
+.card ul.rows.read {
+  display: block;
+}
+
+.card ul.rows > li {
+  overflow: hidden;
+  font-size: 12px;
+  color: #666;
+  background-color: #ffffff;
+  border-bottom: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  height: 35px;
+  line-height: 35px;
+}
+
+.profile-main > .content {
+  margin-left: 20px;
+  width: auto;
+  margin: 0 auto;
+}
