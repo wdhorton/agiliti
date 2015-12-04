@@ -1,9 +1,17 @@
+html, body, .app, .dashboard, #content {
+	height: 100%;
+}
+
 div.dashboard-main {
-  min-height: calc(100% - 168px);
-  margin: 0 auto;
+  min-height: 100%;
+  margin: 0 auto -168px;
   padding: 0;
   background: #f7f6f6;
   overflow-x: hidden;
+}
+
+.push {
+  height: 168px;
 }
 
 div.content {

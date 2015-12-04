@@ -23,7 +23,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="app">
         {this.props.children}
       </div>
     );
