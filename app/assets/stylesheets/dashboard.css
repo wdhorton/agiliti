@@ -1,8 +1,8 @@
-html, body, .app, .dashboard, #content {
+html, body, .app, .dashboard, .profile, #content {
 	height: 100%;
 }
 
-div.dashboard-main {
+div.dashboard-main, div.profile-main {
   min-height: 100%;
   margin: 0 auto -168px;
   padding: 0;

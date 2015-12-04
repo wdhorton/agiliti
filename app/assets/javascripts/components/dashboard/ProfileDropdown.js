@@ -1,5 +1,6 @@
 import React from 'react';
 import SessionsApiUtil from '../../utils/sessions_api_util';
+import { Link } from 'react-router';
 
 export default React.createClass({
   signOut: function () {
@@ -10,7 +11,7 @@ export default React.createClass({
     return (
       <ul className="profile-dropdown">
         <li>
-          <a href="#">Profile</a>
+          <Link to="/profile">Profile</Link>
         </li>
 
         <li>

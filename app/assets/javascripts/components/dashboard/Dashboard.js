@@ -39,7 +39,7 @@ export default React.createClass({
       <div className="dashboard">
         <div className="dashboard-main">
           {modal}
-          <Header showProjectsMenu={this.showProjectsMenu} />
+          <Header />
 
           <div className="content group">
             <div className="dashboard-page">

@@ -1,4 +1,5 @@
-.dashboard > footer {
+.dashboard > footer,
+.profile > footer {
   padding-top: 115px;
   color: #9F9FA1;
   background-color: #f7f6f6;
@@ -10,11 +11,13 @@
   border-top: 1px solid #ccc;
 }
 
-.dashboard > footer a:hover {
+.dashboard > footer a:hover,
+.profile > footer a:hover {
   text-decoration: underline;
 }
 
-.dashboard > footer a {
+.dashboard > footer a,
+.profile > footer a {
   text-decoration: none;
   color: #7a7b7f;
   font-size: 12px;
@@ -30,9 +33,10 @@
   height: 42px;
 }
 
-.dashboard > footer a.twitter-link {
+.dashboard > footer a.twitter-link,
+.profile > footer a.twitter-link  {
   float: right;
-  background: url("twitter_icon.png") no-repeat 0 0;
+  background: image-url("twitter_icon.png") no-repeat 0 0;
   padding-left: 26px;
   height: 20px;
   margin-top: -2px;
