@@ -2,49 +2,66 @@ import React, { Component } from 'react';
 import Header from '../dashboard/Header';
 import Footer from '../dashboard/Footer';
 import UserManagementHeader from './UserManagementHeader';
-import { currentUser } from '../../stores/current_user_store';
+import { currentUser, addChangeListener, removeChangeListener } from '../../stores/current_user_store';
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import PeopleApiUtil from '../../utils/people_api_util';
 
-export default class ProfilePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isEditing: false, user: currentUser() };
-    this.startEditing = this.startEditing.bind(this);
-    this.cancelEditing = this.cancelEditing.bind(this);
-  }
+export default React.createClass({
+  mixins: [ LinkedStateMixin ],
 
-  startEditing() {
+  getInitialState: function () {
+    return { isEditing: false, ...currentUser() };
+  },
+
+  componentDidMount: function () {
+    addChangeListener(this.updateCurrentUser);
+  },
+
+  componentDidMount: function () {
+    removeChangeListener(this.updateCurrentUser);
+  },
+
+  updateCurrentUser: function () {
+    this.setState({ ...currentUser() });
+  },
+
+  startEditing: function() {
     this.setState({ isEditing: true });
-  }
+  },
 
-  cancelEditing() {
+  cancelEditing: function() {
     this.setState({ isEditing: false });
-  }
+  },
 
-  render() {
+  updateMyProfile: function () {
+    PeopleApiUtil.updatePerson(this.state, this.cancelEditing.bind(this));
+  },
+
+  render: function() {
     var rows, buttons;
 
     if (this.state.isEditing) {
       rows = (
         <form>
-          <ul class="rows form">
+          <ul className="rows form">
             <li>
-              <h4 class="text-field"><label for="person-username">User name</label></h4>
-              <div class="text-field">
-                  <input id="person-username" maxlength="40" name="person[username]" size="40" type="text" valueLink={this.state.user.username} />
+              <h4 className="text-field"><label htmlFor="person-username">User name</label></h4>
+              <div className="text-field">
+                  <input id="person-username" maxLength="40" size="40" type="text" valueLink={this.linkState("username")} />
               </div>
             </li>
 
             <li>
-              <h4 class="text_field"><label for="person_name">Name</label></h4>
-              <div class="text_field">
-                <input id="person_name" maxlength="100" name="person[name]" size="100" type="text" valueLink={this.state.user.name} />
+              <h4 className="text-field"><label htmlFor="person-name">Name</label></h4>
+              <div className="text-field">
+                <input id="person-name" maxLength="100" size="100" type="text" valueLink={this.linkState("name")} />
               </div>
             </li>
 
             <li>
-              <h4 class="text_field"><label for="person_initials">Initials</label></h4>
-              <div class="text_field">
-                <input id="person_initials" maxlength="10" name="person[initials]" size="10" type="text" valueLink={this.state.user.initials} />
+              <h4 className="text-field"><label htmlFor="person-initials">Initials</label></h4>
+              <div className="text-field">
+                <input id="person-initials" maxLength="10" size="10" type="text" valueLink={this.linkState("initials")} />
               </div>
             </li>
           </ul>
@@ -108,4 +125,4 @@ export default class ProfilePage extends Component {
       </div>
     );
   }
-}
+});

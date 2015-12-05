@@ -150,3 +150,30 @@ h3, h4 {
   background-color: #2b70ab;
   text-decoration: none;
 }
+
+.card ul.rows > li > h4.text-field {
+  width: 29.1%;
+}
+
+.profile label {
+  font-size: 12px;
+  color: #333;
+}
+
+.card div.text-field,
+.card li.password > div {
+  padding-top: 5px;
+}
+
+.card ul.rows > li input[type=text],
+.card ul.rows > li input[type=password] {
+  width: 300px;
+}
+
+.profile input[type=text],
+.profile input[type=password],
+.profile textarea {
+  font-size: 12px;
+  padding: 5px 5px 4px;
+  border: 1px solid #CCC;
+}

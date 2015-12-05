@@ -213,3 +213,7 @@ a.link {
   color: #306BAA;
   outline-color: rgb(48, 107, 170);
 }
+
+:focus {
+  outline: 0;
+}

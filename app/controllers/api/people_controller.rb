@@ -14,6 +14,13 @@ class Api::PeopleController < ApplicationController
     end
   end
 
+  def update
+    @person = Person.find(params[:id])
+
+    @person.update_attributes(person_params)
+    render json: @person
+  end
+
   private
 
   def person_params

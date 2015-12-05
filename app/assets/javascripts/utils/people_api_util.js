@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { receiveCurrentUser } from '../actions/current_user_actions';
 
 export default {
   signup: function (person, success) {
@@ -8,7 +9,20 @@ export default {
       dataType: 'json',
       data: { person: person },
       success: function (person) {
-        CurrentUserActions.receiveCurrentUser(person);
+        receiveCurrentUser(person);
+        if (success) success();
+      }
+    });
+  },
+
+  updatePerson: function (person, success) {
+    $.ajax({
+      url: "api/people/" + person.id,
+      method: "PATCH",
+      data: { person: person },
+      dataType: 'json',
+      success: function (user) {
+        receiveCurrentUser(person);
         if (success) success();
       }
     });

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :stories, only: [:create, :update, :destroy]
     resources :accounts, only: [:index]
     resource :session, only: [:show, :create, :destroy]
-    resources :people, only: [:create]
+    resources :people, only: [:create, :update]
   end
 
 end
