@@ -81,15 +81,47 @@ RSpec.describe Person, :type => :model do
     end
 
     it "makes password_digest different from password" do
-      expect(@person.password_digest).to_not eq(@person.password)
+      expect(@person.password_digest).not_to eq(@person.password)
     end
 
   end
 
   describe "#reset_session_token!" do
 
-    it 
+    before(:each) do
+      @person = build(:person)
+    end
 
+    it "changes the session token" do
+      old_token = @person.session_token
+      @person.reset_session_token!
+      expect(@person.session_token).not_to eq(old_token)
+    end
+
+    it "persists changes to the database" do
+      expect(@person).to receive(:save!)
+      @person.reset_session_token!
+    end
+  end
+
+  describe "#valid_password?" do
+
+    before(:all) do
+      @person = build(:person)
+      @password = @person.password
+    end
+
+    it "returns true when give correct password" do
+      expect(@person.valid_password?(@password)).to be true
+    end
+
+    it "returns false when given incorrect password" do
+      expect(@person.valid_password?("wrong password")).to be false
+    end
+
+    it "returns false when given nil" do
+      expect(@person.valid_password?(nil)).to be false
+    end
 
   end
 
