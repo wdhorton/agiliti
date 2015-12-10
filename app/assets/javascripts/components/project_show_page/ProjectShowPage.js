@@ -26,12 +26,20 @@ export default React.createClass({
   panels: [],
 
   getStateFromStore: function () {
-    var id = parseInt(this.props.params.id);
+    const id = parseInt(this.props.params.id);
     return { project: ProjectStore.find(id), stories: StoryStore.all()};
   },
 
   componentDidMount: function () {
-    ApiUtil.fetchStories(parseInt(this.props.params.id));
+    const id = parseInt(this.props.params.id);
+    ApiUtil.fetchSingleProject(id);
+    ApiUtil.fetchStories(id);
+    ProjectStore.addChangeListener(this.updateProject);
+    StoryStore.addChangeListener(this.updateProject);
+  },
+
+  updateProject: function () {
+    this.setState(this.getStateFromStore());
   },
 
   createStory: function () {
@@ -55,9 +63,11 @@ export default React.createClass({
   render: function () {
     const { stories, project, showCreateStory } = this.state;
 
+    const name = project ? project.name : "";
+
     return (
       <div>
-        <ProjectShowHeader title={this.state.project.name} />
+        <ProjectShowHeader title={name} />
         <section className="project main">
           <Sidebar createStory={this.createStory} togglePanel={this.togglePanel} activePanels={this.activePanels()} />
           <article className="main">

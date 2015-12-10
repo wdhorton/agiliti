@@ -43,14 +43,14 @@ class Person < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def valid_password?(password)
-    BCrypt::Password.new(password_digest).is_password?(password)
-  end
-
   def reset_session_token!
     self.session_token = Person.generate_session_token
     save!
     self.session_token
+  end
+
+  def valid_password?(password)
+    BCrypt::Password.new(password_digest).is_password?(password)
   end
 
   private
@@ -58,4 +58,5 @@ class Person < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= Person.generate_session_token
   end
+
 end

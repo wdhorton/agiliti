@@ -11,6 +11,13 @@ export default {
     });
   },
 
+  receiveSingleProject: function(project) {
+    dispatch({
+      actionType: ProjectConstants.SINGLE_PROJECT_RECEIVED,
+      project: project
+    });
+  },
+
   receiveNewProject: function(project) {
     dispatch({
       actionType: ProjectConstants.NEW_PROJECT_RECEIVED,

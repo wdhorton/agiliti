@@ -16,7 +16,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def show
-    project = Project.find(params[:id]).includes(:stories)
+    project = Project.includes(:stories).find(params[:id])
     render json: project
   end
 

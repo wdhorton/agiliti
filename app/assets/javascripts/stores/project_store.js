@@ -25,6 +25,12 @@ ProjectStore.dispatcherToken = register(payload => {
       _projects.push(payload.type.project);
       ProjectStore.emitChange();
       break;
+    case ProjectConstants.NEW_PROJECT_RECEIVED:
+      const project = payload.type.project;
+      _projects = _projects.filter(function (p) { return p.id !== project.id; });
+      _projects.push(project);
+      ProjectStore.emitChange();
+      break;
   }
 });
 

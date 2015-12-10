@@ -4,7 +4,7 @@ import ApiActions from '../actions/api_actions';
 export default {
   fetchProjects: function () {
     $.ajax({
-      url: "api/projects",
+      url: "/api/projects",
       method: "GET",
       dataType: 'json',
       success: function (projects) {
@@ -13,9 +13,20 @@ export default {
     });
   },
 
+  fetchSingleProject: function (id) {
+    $.ajax({
+      url: "/api/projects/" + id,
+      method: "GET",
+      dataType: 'json',
+      success: function (project) {
+        ApiActions.receiveSingleProject(project);
+      }
+    });
+  },
+
   createNewProject: function (project) {
     $.ajax({
-      url: "api/projects",
+      url: "/api/projects",
       method: "POST",
       data: { project : project },
       dataType: 'json',
@@ -27,7 +38,7 @@ export default {
 
   fetchAccounts: function () {
     $.ajax({
-      url: "api/accounts",
+      url: "/api/accounts",
       method: "GET",
       dataType: 'json',
       success: function (accounts) {
@@ -53,7 +64,7 @@ export default {
       method: "POST",
       data: { story : story },
       dataType: 'json',
-      success: function (project) {
+      success: function (story) {
         ApiActions.receiveNewStory(story);
       }
     });

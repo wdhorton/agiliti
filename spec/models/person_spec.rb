@@ -63,6 +63,33 @@ RSpec.describe Person, :type => :model do
         expect(@person).to be_a(Person)
       end
     end
+  end
+
+  describe("#password=") do
+
+    before(:each) do
+      @person = build(:person)
+      @person.password=("password")
+    end
+
+    it "sets an instance variable @password" do
+      expect(@person.password).to eq("password")
+    end
+
+    it "sets an attribute password_digest" do
+      expect(@person.password_digest).to_not be_nil
+    end
+
+    it "makes password_digest different from password" do
+      expect(@person.password_digest).to_not eq(@person.password)
+    end
+
+  end
+
+  describe "#reset_session_token!" do
+
+    it 
+
 
   end
 
