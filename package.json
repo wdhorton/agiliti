@@ -5,7 +5,7 @@
     "node": ">= 0.10"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel/register app/assets/javascripts/spec/*.spec.js"
+    "test": "mocha --compilers js:babel/register app/assets/javascripts/spec/*/*.spec.js"
   },
   "dependencies": {
     "babelify": "6.4.0",

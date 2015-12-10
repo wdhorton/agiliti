@@ -7,23 +7,26 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 
-const SignInPage = require('../components/sign_in/SignInPage');
-const SignInHeader = require('../components/sign_in/SignInHeader');
-const SignInContent = require('../components/sign_in/SignInContent');
-const SignInFooter = require('../components/sign_in/SignInFooter');
+const SignInPage = require('../../components/sign_in/SignInPage');
+const SignInHeader = require('../../components/sign_in/SignInHeader');
+const SignInContent = require('../../components/sign_in/SignInContent');
+const SignInFooter = require('../../components/sign_in/SignInFooter');
 
 const expect = Unexpected.clone()
     .use(UnexpectedReact);
 
 describe('SignInPage', () => {
 
-  let component;
+  let renderer;
+
   beforeEach(() => {
-    component = TestUtils.renderIntoDocument(<SignInPage />);
+    renderer = TestUtils.createRenderer();
+    renderer.render(<SignInPage />);
   });
 
+
   it('should render a div.sign-in-page', () => {
-    return expect(component, 'to have rendered',
+    return expect(renderer, 'to have rendered',
       <div className="sign-in-page">
         <SignInHeader />
         <SignInContent />
@@ -31,6 +34,4 @@ describe('SignInPage', () => {
       </div>
     );
   });
-
-
 });
