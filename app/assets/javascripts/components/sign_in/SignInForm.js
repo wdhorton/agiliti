@@ -14,7 +14,7 @@ export default React.createClass({
     e.preventDefault();
 
     SessionsApiUtil.signin(this.state, function() {
-      this.history.pushState(null, "#/dashboard");
+      this.history.pushState(null, "/dashboard");
     }.bind(this));
   },
 
