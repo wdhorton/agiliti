@@ -4,6 +4,8 @@ import ProjectList from './ProjectList';
 import Footer from './Footer';
 import CreateProjectForm from './CreateProjectForm';
 
+import "../../../stylesheets/dashboard.scss";
+
 export default React.createClass({
   getInitialState: function () {
     return { showProjectModal: false };

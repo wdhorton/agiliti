@@ -17,6 +17,7 @@
     "build:test:frontend": "webpack -w --config webpack.client.rails.build.config.js"
   },
   "dependencies": {
+    "autoprefixer": "^6.1.2",
     "events": "1.1.0",
     "extract-text-webpack-plugin": "^0.9.1",
     "expose-loader": "^0.7.1",

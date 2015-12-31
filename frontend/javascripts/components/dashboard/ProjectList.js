@@ -3,6 +3,7 @@ import ProjectStore from '../../stores/project_store';
 import ApiUtil from '../../utils/api_util';
 import ProjectBox from './ProjectBox';
 
+import "../../../stylesheets/project_list.scss";
 
 export default React.createClass({
   getInitialState: function () {

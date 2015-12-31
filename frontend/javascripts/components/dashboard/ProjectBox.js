@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import "../../../stylesheets/project_box.scss";
 
 export default React.createClass({
   render: function () {

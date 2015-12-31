@@ -23,14 +23,14 @@ module.exports = {
 
     // This will contain the app entry points defined by webpack.hot.config and webpack.rails.config
     app: [
-      './js/index.js',
+      './javascripts/index.js',
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
-    },
+    }
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -51,5 +51,9 @@ module.exports = {
       { test: require.resolve('react'), loader: 'expose?React' },
       { test: require.resolve('react-dom'), loader: 'expose?ReactDOM' }
     ],
-  }
+  },
+  // Place here all postCSS plugins here, so postcss-loader will apply them
+  postcss: [autoprefixer],
+
+  sassResources: []
 };

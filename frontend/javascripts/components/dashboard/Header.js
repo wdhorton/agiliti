@@ -4,6 +4,8 @@ import CurrentUserStore from '../../stores/current_user_store';
 import ProjectsMenu from './ProjectsMenu';
 import ProfileDropdown from './ProfileDropdown';
 
+import "../../../stylesheets/header.scss";
+
 export default React.createClass({
   getInitialState: function () {
     return { showProjectsMenu: false, showProfileDropdown: false };

@@ -63,7 +63,7 @@ config.module.loaders.push(
       'css?modules&importLoaders=3&localIdentName=[name]__[local]__[hash:base64:5]',
       'postcss',
       'sass',
-      'sass-resources',
+      'sass-resources'
     ],
   }
 );
