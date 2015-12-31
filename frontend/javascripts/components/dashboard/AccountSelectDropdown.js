@@ -1,6 +1,7 @@
 import React from 'react';
 import AccountStore from '../../stores/account_store';
 import ApiUtil from '../../utils/api_util';
+import "../../../stylesheets/account_dropdown.scss";
 
 export default React.createClass({
   getInitialState: function () {

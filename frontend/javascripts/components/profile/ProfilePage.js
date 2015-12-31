@@ -5,6 +5,7 @@ import UserManagementHeader from './UserManagementHeader';
 import { currentUser, addChangeListener, removeChangeListener } from '../../stores/current_user_store';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import PeopleApiUtil from '../../utils/people_api_util';
+import "../../../stylesheets/profile.scss";
 
 export default React.createClass({
   mixins: [ LinkedStateMixin ],

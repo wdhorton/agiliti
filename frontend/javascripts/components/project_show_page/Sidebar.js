@@ -2,6 +2,7 @@ import React from 'react';
 import SidebarHeader from './SidebarHeader';
 import SidebarContent from './SidebarContent';
 import SidebarFooter from './SidebarFooter';
+import "../../../stylesheets/sidebar.scss";
 
 export default React.createClass({
   render: function () {

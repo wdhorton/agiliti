@@ -2,6 +2,7 @@ import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import $ from 'jquery';
 import ApiUtil from '../../utils/api_util';
+import "../../../stylesheets/create_story_form.scss";
 
 export default React.createClass({
   mixins: [LinkedStateMixin],

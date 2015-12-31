@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionsApiUtil from '../../utils/sessions_api_util';
 import { Link } from 'react-router';
+import "../../../stylesheets/profile_dropdown.scss";
 
 export default React.createClass({
   signOut: function () {

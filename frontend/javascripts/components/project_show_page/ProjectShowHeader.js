@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import ProjectsMenu from '../dashboard/ProjectsMenu';
+import "../../../stylesheets/project_show_header.scss";
 
 export default React.createClass({
   mixins: [LinkedStateMixin],

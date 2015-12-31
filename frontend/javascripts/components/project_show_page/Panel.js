@@ -7,6 +7,9 @@ import PanelHeader from './PanelHeader';
 import StoryStore from '../../stores/story_store';
 import ApiUtil from '../../utils/api_util';
 import StoryList from './StoryList';
+import "../../../stylesheets/panel.scss";
+import "../../../stylesheets/current_panel.scss";
+
 
 const panelSource = {
   beginDrag(props) {

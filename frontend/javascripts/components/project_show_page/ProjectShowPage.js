@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import ProjectStore from '../../stores/project_store';
 import StoryStore from '../../stores/story_store';
 import ApiUtil from '../../utils/api_util';
+import "../../../stylesheets/project_show_page.scss";
 
 export default React.createClass({
   getInitialState: function () {
