@@ -23,7 +23,7 @@ config.entry.vendor.unshift(
 // See webpack.common.config for adding modules common to both the webpack dev server and rails
 
 config.module.loaders.push(
-  { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+  { test: /\.js?$/, loader: 'babel-loader', exclude: /node_modules/ },
   {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract(

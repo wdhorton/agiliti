@@ -7,6 +7,7 @@ import SignInPage from './components/sign_in/SignInPage'
 import SignUpPage from './components/sign_up/SignUpPage'
 import ProjectShowPage from './components/project_show_page/ProjectShowPage'
 import ProfilePage from './components/profile/ProfilePage'
+import '../stylesheets/reset.scss'
 
 export default class Root extends Component {
   static propTypes = {
