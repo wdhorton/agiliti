@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>Agiliti</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= env_stylesheet_link_tag 'application_prod', 'application_dev', media: 'all' %>
+  <%= env_javascript_include_tag nil, 'http://localhost:3500/vendor-bundle.js' %>
+  <%= env_javascript_include_tag nil, 'http://localhost:3500/app-bundle.js' %>
+  <%= env_javascript_include_tag 'application_prod', 'application_dev' %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,600,700" rel="stylesheet" type="text/css">
 </head>
 <body>
 
   <%= yield %>
-  <%= javascript_include_tag 'application' %>
 
 </body>
 </html>

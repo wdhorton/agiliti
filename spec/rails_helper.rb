@@ -20,6 +20,11 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
+  config.before(:suite) do
+    # Next line will ensure that assets are built if webpack -w is not running
+    EnsureAssetsCompiled.check_built_assets
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

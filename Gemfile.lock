@@ -45,9 +45,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    browserify-rails (2.0.2)
-      railties (>= 4.0.0, < 5.0)
-      sprockets (> 3.0.2)
     builder (3.2.2)
     byebug (8.2.0)
     coderay (1.1.0)
@@ -65,8 +62,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
       thor (~> 0.14)
-    flux-rails-assets (2.1.0)
-      railties (>= 3.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
@@ -195,13 +190,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  browserify-rails
   bundler (>= 1.8.4)
   byebug
   factory_girl_rails
   faker
   figaro
-  flux-rails-assets (~> 2.1.0)
   jbuilder (~> 2.0)
   omniauth-google-oauth2
   pg
@@ -214,4 +207,4 @@ DEPENDENCIES
   spring
 
 BUNDLED WITH
-   1.10.6
+   1.11.0
