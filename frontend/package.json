@@ -7,8 +7,7 @@
     "npm": "3.3.12"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel/register frontend/javascripts/spec/*/*.spec.js",
-    "test:debug": "npm run test -- --debug-brk",
+    "test": "mocha --compilers js:babel-core/register spec/*/*.spec.js --require ignore-styles",
     "start": "node server-express.js",
     "build:frontend": "NODE_ENV=production webpack --config webpack.client.rails.build.config.js",
     "build:server": "NODE_ENV=production webpack --config webpack.server.rails.build.config.js",

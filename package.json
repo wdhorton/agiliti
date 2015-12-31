@@ -7,7 +7,7 @@
   },
   "scripts": {
     "postinstall": "cd frontend && npm install",
-    "test": "rspec && npm run test:client",
+    "test": "bundle exec rspec && npm run test:frontend",
     "test:frontend": "(cd frontend && npm run test --silent)",
     "build:clean": "rm app/assets/webpack/*",
     "build:frontend": "(cd frontend && npm run build:client --silent)",
@@ -19,5 +19,8 @@
   },
   "author": "William Horton",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "ignore-styles": "^1.2.0"
+  }
 }

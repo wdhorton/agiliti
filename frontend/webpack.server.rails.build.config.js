@@ -13,7 +13,7 @@ module.exports = {
   entry: [
     'react',
     'react-dom/server',
-    './js/index.js',
+    './javascripts/index.js',
   ],
   output: {
     filename: 'server-bundle.js',
